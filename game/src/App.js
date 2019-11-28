@@ -1,11 +1,13 @@
 import React from "react";
+import "./App.css";
 import "./bootstrap.min.css";
-import Game from "./components/Views/Game";
+import Home from "./components/Views/Home";
+import { Container, Row, Col } from "reactstrap";
 
 function App() {
   return (
     <div className="App">
-      <Game />
+      <Home />
     </div>
   );
 }
