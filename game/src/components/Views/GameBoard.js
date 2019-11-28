@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Board from "./Board";
 import "./Game.css";
+import { Link } from "react-router-dom";
 
 class Game extends Component {
   constructor(props) {
@@ -31,6 +32,9 @@ class Game extends Component {
     return (
       <div className="game">
         <div className="game-board">
+          <Link to="/">
+            <button className="btn btn-outline-secondary">Home</button>
+          </Link>
           <Board onClick={i => this.handleClick(i)} squares={current.squares} />
         </div>
       </div>

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import BtnStart from "../Buttons/BtnStart";
 import "./Home.css";
-import Game from "../Views/Game";
+import { Link } from "react-router-dom";
 class Home extends Component {
   constructor() {
     super();
@@ -16,10 +15,15 @@ class Home extends Component {
   render() {
     return (
       <div className="container">
-        <h1>BATTLE OF POWERS</h1>
-        <h3>The battle to save or destroy the world!</h3>
-        <BtnStart onClick={this.start} text="START" />
-        <Game />
+        <header className="header-home">
+          <h1>BATTLE OF POWERS</h1>
+          <h3>The battle to save or destroy the world!</h3>
+        </header>
+        <div className="home-content">
+          <Link to="/GameBoard">
+            <button className="btn btn-outline-secondary">START</button>
+          </Link>
+        </div>
       </div>
     );
   }
