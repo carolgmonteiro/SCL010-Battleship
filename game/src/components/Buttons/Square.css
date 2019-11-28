@@ -1,0 +1,25 @@
+.btn-square {
+  background: #fff;
+  border: 1px solid black;
+  float: left;
+  font-size: 50px;
+  font-weight: bold;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  text-align: center;
+  width: 80px;
+  line-height: 80px;
+  height: 80px;
+  display: inline-block;
+  transition: 0.2s;
+  font-size: 16px;
+}
+
+.btn-square:focus {
+  outline: none;
+}
+
+.btn-square:hover {
+  background-color: grey;
+}

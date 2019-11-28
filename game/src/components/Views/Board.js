@@ -1,13 +1,20 @@
 import React, { Component } from "react";
-import Square from "../Action/Square";
+import Square from "../Buttons/Square";
+import "./Board.css";
+import { Container } from "reactstrap";
 
 class Board extends Component {
   renderSquare(i) {
-    return <Square />;
+    return (
+      <Square
+        value={this.props.squares[i]}
+        onClick={() => this.props.onClick(i)}
+      />
+    );
   }
   render() {
     return (
-      <div>
+      <Container>
         <div className="border-row">
           {this.renderSquare(0)}
           {this.renderSquare(1)}
@@ -23,7 +30,7 @@ class Board extends Component {
           {this.renderSquare(7)}
           {this.renderSquare(8)}
         </div>
-      </div>
+      </Container>
     );
   }
 }
