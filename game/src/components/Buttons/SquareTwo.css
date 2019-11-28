@@ -1,7 +1,8 @@
-.btn-square {
+.btn-square2 {
   background: #fff;
   border: 1px solid black;
   float: left;
+  /* float: left; */
   font-size: 50px;
   font-weight: bold;
   margin-right: -1px;
@@ -15,11 +16,9 @@
   transition: 0.2s;
   font-size: 16px;
 }
-
-.btn-square:focus {
+.btn-square2:focus {
   outline: none;
 }
-
-.btn-square:hover {
+.btn-square2:hover {
   background-color: grey;
 }
