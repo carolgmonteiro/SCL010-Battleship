@@ -29,7 +29,7 @@ class Home extends Component {
           </div>
         </Row>
         <Col className="home-content">
-          <Link to="/GameBoard">
+          <Link to="/">
             <button className="btn-start">START</button>
           </Link>
         </Col>
