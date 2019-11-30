@@ -3,11 +3,22 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
+import { Provider } from "react-redux";
+import { configureStore } from "../src/store/configureStore";
+
+//toma las configuraciones de store
+const store = configureStore();
+console.log(store.getState());
 
 // ReactDOM.render(<App />, document.getElementById("root"));
 const rootEl = document.getElementById("root");
 let render = () => {
-  ReactDOM.render(<App />, rootEl);
+  ReactDOM.render(
+    <Provider store={store}>
+      <App />
+    </Provider>,
+    rootEl
+  );
 };
 
 if (module.hot) {

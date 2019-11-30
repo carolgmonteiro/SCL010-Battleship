@@ -5,6 +5,19 @@ import "./GameBoard.css";
 // import "./Home.css";
 import { Link } from "react-router-dom";
 import { Col, Row } from "reactstrap";
+import { connect } from "react-redux";
+import { incrementCounter, decrementCounter } from "../../actions/action";
+
+//lee la data que está en testReducerGame.js
+const mapState = state => ({
+  data: state.test.data
+});
+
+const actions = {
+  incrementCounter,
+  decrementCounter
+};
+
 class GameBoard extends Component {
   constructor(props) {
     super(props);
@@ -28,6 +41,7 @@ class GameBoard extends Component {
     });
   }
   render() {
+    const { data, incrementCounter, decrementCounter } = this.props;
     const steps = this.state.steps;
     const current = steps[this.state.stepNumber];
     return (
@@ -45,6 +59,7 @@ class GameBoard extends Component {
               salvar a la Tierra o generar el comienzo de una extinción masiva.
               ¿Existirá realmente el cambio Climático? ¿Se salvará el planeta ?
             </p>
+
             <Col className="home-content">
               <Link to="/">
                 <button className="btn-start">START</button>
@@ -53,6 +68,13 @@ class GameBoard extends Component {
           </Col>
           <Row>
             <Col>
+              <h3>Puntaje {data} </h3>
+              <button onClick={incrementCounter} className="btn btn-success">
+                +
+              </button>
+              <button onClick={decrementCounter} className="btn btn-danger">
+                -
+              </button>
               <Board1
                 onClick={i => this.handleClick(i)}
                 squares={current.squares}
@@ -70,4 +92,4 @@ class GameBoard extends Component {
     );
   }
 }
-export default GameBoard;
+export default connect(mapState, actions)(GameBoard);
