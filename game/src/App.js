@@ -11,8 +11,9 @@ function App() {
     <div className="App">
       <Router>
         <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/GameBoard" component={GameBoard} />
+          <Route exact path="/" component={GameBoard} />
+          {/* <Route exact path="/" component={Home} /> */}
+          {/* <Route path="/GameBoard" component={GameBoard} /> */}
         </Switch>
       </Router>
     </div>

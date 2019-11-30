@@ -16,17 +16,17 @@ class Board2 extends Component {
     return (
       <div className="board-enemy">
         <Container>
-          <div className="border-row2">
+          <div className="border2-row">
             {this.renderSquare(9)}
             {this.renderSquare(10)}
             {this.renderSquare(11)}
           </div>
-          <div className="border-row2">
+          <div className="border2-row">
             {this.renderSquare(12)}
             {this.renderSquare(13)}
             {this.renderSquare(14)}
           </div>
-          <div className="border-row2">
+          <div className="border2-row">
             {this.renderSquare(15)}
             {this.renderSquare(16)}
             {this.renderSquare(17)}

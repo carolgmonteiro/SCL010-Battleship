@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  height: 100vh;
+  min-height: 100vh;
   background: #0f2027; /* fallback for old browsers */
   background: -webkit-linear-gradient(
     to right,
