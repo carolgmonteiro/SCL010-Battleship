@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import "./bootstrap.min.css";
-import Home from "./components/Views/Home";
+//import Home from "./components/Views/Home";
 // import { Container, Row, Col } from "reactstrap";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import GameBoard from "../src/components/Views/GameBoard";
