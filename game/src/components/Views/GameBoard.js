@@ -3,7 +3,7 @@ import Board1 from "./Board1";
 import Board2 from "./Board2";
 import "./GameBoard.css";
 // import "./Home.css";
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 import { Col, Row } from "reactstrap";
 class GameBoard extends Component {
   constructor(props) {
@@ -46,9 +46,9 @@ class GameBoard extends Component {
               ¿Existirá realmente el cambio Climático? ¿Se salvará el planeta ?
             </p>
             <Col className="home-content">
-              <Link to="/">
-                <button className="btn-start">START</button>
-              </Link>
+              {/* <Link to="/"> */}
+              <button className="btn-start"> START</button>
+              {/* </Link> */}
             </Col>
           </Col>
           <Row>
