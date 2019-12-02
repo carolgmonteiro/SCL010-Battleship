@@ -1,8 +1,11 @@
+//funciona index.js de reducer
+
 import { combineReducers } from "redux";
-import testReducerGame from "../store/testReducerGame";
+// import testReducerGame from "../store/initialState";
+import initialState from "../store/initialState";
 
 const rootReducer = combineReducers({
-  test: testReducerGame
+  test: initialState
 });
 
 export default rootReducer;
