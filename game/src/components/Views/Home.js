@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import "./Home.css";
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 import { Container, Col, Row } from "reactstrap";
+
 class Home extends Component {
   constructor() {
     super();
@@ -29,9 +30,9 @@ class Home extends Component {
           </div>
         </Row>
         <Col className="home-content">
-          <Link to="/">
-            <button className="btn-start">START</button>
-          </Link>
+          {/* <Link to="/"> */}
+          <button className="btn-start">START</button>
+          {/* </Link> */}
         </Col>
       </Container>
     );
