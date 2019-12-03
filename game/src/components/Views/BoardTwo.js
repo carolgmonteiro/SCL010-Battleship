@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import "./Board2.css";
+import "./BoardTwo.css";
 import { Container } from "reactstrap";
 import SquareTwo from "../Buttons/SquareTwo";
 
-class Board2 extends Component {
+class BoardTwo extends Component {
   renderSquare(i) {
     return (
       <SquareTwo
@@ -37,4 +37,4 @@ class Board2 extends Component {
   }
 }
 
-export default Board2;
+export default BoardTwo;
