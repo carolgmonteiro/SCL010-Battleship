@@ -1,17 +1,17 @@
 import React from "react";
 import "./SquareOne.css";
 
-function SquareOne(props) {
+function SquareOne({ propKey, clickFunc }) {
   return (
     <button
-      key={props.propKey}
+      key={propKey}
       type="button"
       className="btn-square1"
-      onClick={props.onClick}
+      onClick={event => {
+        clickFunc(event, propKey);
+      }}
     >
-      {props.propKey}
-
-      {props.value}
+      {propKey}
     </button>
   );
 }
