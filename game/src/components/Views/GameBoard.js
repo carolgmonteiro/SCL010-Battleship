@@ -24,9 +24,9 @@ class GameBoard extends Component {
     this.pieces = [];
     this.state = {
       playerOne: true,
-      stepNumberPlayerOne: 0,
-      piecesPlayerOne: []
-      // steps: [{ squaresInBoard: Array(9).fill(null) }]
+      arrayShipsPlayerOne: []
+      // stepNumberPlayerOne: 0,
+      // table: [{ squaresInBoard: Array(9).fill(null) }]
     };
   }
   // handleClick(i) {
@@ -64,10 +64,16 @@ class GameBoard extends Component {
   //     stepNumberPlayerOne: steps.length
   //   });
   // }
+  // estado
 
   handleClick(x, y) {
+    // console.log(propKey);
     console.log("%d, %d", x, y);
     console.log("clique");
+    let width = x;
+    let height = y;
+    let key = `${x}${y}`;
+    console.log("key", key);
     // const steps = this.state.piecesPlayerOne;
   }
 

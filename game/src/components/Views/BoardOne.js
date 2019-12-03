@@ -19,16 +19,25 @@ class BoardOne extends Component {
     let board = [];
     let boardHeight = 3;
     let boardWidth = 3;
-
+    let keySquare = "";
+    let key;
+    let cellInfo;
     for (let x = 0; x < boardHeight; x++) {
-      let row = [];
+      let square = [];
       for (let y = 0; y < boardWidth; y++) {
-        row[y] = { x, y };
+        square[y] = { x, y };
+        key = `${x}${y}`;
+        cellInfo = {
+          key: key
+        };
 
-        console.log("row", row[y]);
+        console.log("cellInfo", cellInfo);
       }
 
-      board[x] = row;
+      board[x] = square;
+      // key = board;
+      // keySquare = JSON.stringify({ key: key });
+      console.log("keySquare", keySquare);
     }
     console.log("board", board);
     return board.map(squares =>
@@ -38,20 +47,13 @@ class BoardOne extends Component {
           x={place.x}
           y={place.y}
           propKey={`${place.x}${place.y}`}
-          // value={this.props.squaresInBoard[place.x][place.y]}
+          // value={this.props.board[place.x][place.y]}
           onClick={() => this.props.onClick(place.x, place.y)}
         />
       ))
     );
   }
 
-  handleClick(x, y) {
-    let pieces;
-    console.log("%d, %d", x, y);
-    console.log("clique");
-    const arrayPieces = pieces.push(x, y);
-    console.log(arrayPieces);
-  }
   render() {
     return (
       <div className="board-me">
