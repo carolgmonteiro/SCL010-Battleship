@@ -3,7 +3,6 @@ import BoardOne from "./BoardOne";
 // import BoardTwo from "./BoardTwo";
 import "./GameBoard.css";
 // import "./Home.css";
-// import { Link } from "react-router-dom"; |
 import { Col, Row, Container } from "reactstrap";
 import { connect } from "react-redux";
 import { incrementCounter, decrementCounter } from "../../actions/action";
@@ -105,7 +104,8 @@ class GameBoard extends Component {
 
             <Col className="home-content">
               {/* <Link to="/"> */}
-              <button className="btn-start">START</button>
+              <button className="btn-start"> START</button>
+
               {/* </Link> */}
             </Col>
           </Col>
