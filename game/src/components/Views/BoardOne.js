@@ -4,54 +4,52 @@ import "./BoardOne.css";
 import { Container } from "reactstrap";
 
 class BoardOne extends Component {
-  // renderSquare(boardKey) {
+  constructor(props) {
+    super(props);
+    this.pieces = [];
+    this.renderSquare = this.renderSquare.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+    this.state = {
+      playerOneIsNext: true,
+      arrayPiecesPlayerOne: this.pieces
+    };
+  }
 
-  //   return (
-  //     <SquareOne
-  //       key={boardKey}
-  //       value={this.props.squaresInBoard[boardKey]}
-  //       onClick={() => this.props.onClick(boardKey)}
-  //     />
-  //   );
-  // }
-
+  handleClick(event, propKey) {
+    console.log("testeando", propKey);
+    const arrayPiecesPlayerOne = this.state.arrayPiecesPlayerOne;
+    console.log("arrayPiecesPlayerOne", arrayPiecesPlayerOne);
+    if (this.pieces.length <= 2) {
+      this.pieces.push(propKey);
+      console.log("Piezas", this.pieces);
+    } else {
+      alert("no mas piezas");
+    }
+    return this.pieces;
+  }
+  //lalalalal
   renderSquare() {
     let board = [];
     let boardHeight = 3;
     let boardWidth = 3;
-    let keySquare = "";
     let key;
     let cellInfo;
     for (let x = 0; x < boardHeight; x++) {
-      let square = [];
       for (let y = 0; y < boardWidth; y++) {
-        square[y] = { x, y };
         key = `${x}${y}`;
+        console.log("board", board);
         cellInfo = {
-          key: key
+          key: key,
+          height: x,
+          width: y
         };
-
+        board.push(cellInfo);
         console.log("cellInfo", cellInfo);
       }
-
-      board[x] = square;
-      // key = board;
-      // keySquare = JSON.stringify({ key: key });
-      console.log("keySquare", keySquare);
     }
-    console.log("board", board);
-    return board.map(squares =>
-      squares.map(place => (
-        <SquareOne
-          key={`${place.x}${place.y}`}
-          x={place.x}
-          y={place.y}
-          propKey={`${place.x}${place.y}`}
-          // value={this.props.board[place.x][place.y]}
-          onClick={() => this.props.onClick(place.x, place.y)}
-        />
-      ))
-    );
+    return board.map(e => (
+      <SquareOne propKey={e.key} clickFunc={this.handleClick} />
+    ));
   }
 
   render() {

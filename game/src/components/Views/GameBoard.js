@@ -21,12 +21,12 @@ class GameBoard extends Component {
   constructor(props) {
     super(props);
     this.pieces = [];
-    this.state = {
-      playerOne: true,
-      arrayShipsPlayerOne: []
-      // stepNumberPlayerOne: 0,
-      // table: [{ squaresInBoard: Array(9).fill(null) }]
-    };
+    // this.state = {
+    //   playerOne: true,
+    //   arrayPiecesPlayerOne: []
+    //   // stepNumberPlayerOne: 0,
+    //   // table: [{ squaresInBoard: Array(9).fill(null) }]
+    // };
   }
   // handleClick(i) {
   //   const steps = this.state.steps.slice(0, this.state.stepNumber + 1);
@@ -65,16 +65,18 @@ class GameBoard extends Component {
   // }
   // estado
 
-  handleClick(x, y) {
-    // console.log(propKey);
-    console.log("%d, %d", x, y);
-    console.log("clique");
-    let width = x;
-    let height = y;
-    let key = `${x}${y}`;
-    console.log("key", key);
-    // const steps = this.state.piecesPlayerOne;
-  }
+  // handleClick(x, y) {
+  //   // console.log(propKey);
+  //   console.log("%d, %d", x, y);
+  //   console.log("clique");
+  //   // let width = x;
+  //   // let height = y;
+  //   let key = `${x}${y}`;
+  //   console.log("key", key);
+  //   // this.pieces.push(key);
+  //   console.log("pieces", this.pieces);
+  //   // const steps = this.state.piecesPlayerOne;
+  // }
 
   render() {
     const {
@@ -114,7 +116,7 @@ class GameBoard extends Component {
               <BoardOne
                 propKey={propKey}
                 value={value}
-                onClick={this.handleClick}
+                // onClick={this.handleClick}
                 // squaresInBoard={current.squaresInBoard}
               />
             </Col>
