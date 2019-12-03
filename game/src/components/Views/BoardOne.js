@@ -27,6 +27,7 @@ class BoardOne extends Component {
     }
     return this.pieces;
   }
+  //lalalalal
   renderSquare() {
     let board = [];
     let boardHeight = 3;
