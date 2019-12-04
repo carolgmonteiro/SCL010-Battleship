@@ -1,7 +1,8 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import SquareOne from "../Buttons/SquareOne";
 import "./BoardOne.css";
 import { Container } from "reactstrap";
+import BtnTest from "../Buttons/BtnTest";
 
 class BoardOne extends Component {
   constructor(props) {
@@ -11,7 +12,9 @@ class BoardOne extends Component {
     this.handleClick = this.handleClick.bind(this);
     this.state = {
       playerOneIsNext: true,
-      arrayPiecesPlayerOne: this.pieces
+      arrayPiecesPlayerOne: this.pieces,
+      isActive: false,
+      color: "white"
     };
   }
 
@@ -19,36 +22,49 @@ class BoardOne extends Component {
     console.log("testeando", propKey);
     const arrayPiecesPlayerOne = this.state.arrayPiecesPlayerOne;
     console.log("arrayPiecesPlayerOne", arrayPiecesPlayerOne);
+
     if (this.pieces.length <= 2) {
       this.pieces.push(propKey);
       console.log("Piezas", this.pieces);
+      this.setState({
+        color: "red"
+      });
     } else {
       alert("no mas piezas");
     }
     return this.pieces;
   }
-  //lalalalal
+
   renderSquare() {
     let board = [];
-    let boardHeight = 3;
-    let boardWidth = 3;
+    // let boardHeight = 3;
+    // let boardWidth = 3;
     let key;
     let cellInfo;
-    for (let x = 0; x < boardHeight; x++) {
-      for (let y = 0; y < boardWidth; y++) {
+    for (let x = 0; x < 5; x++) {
+      for (let y = 0; y < 5; y++) {
         key = `${x}${y}`;
         console.log("board", board);
         cellInfo = {
           key: key,
           height: x,
-          width: y
+          width: y,
+          isActive: false
         };
         board.push(cellInfo);
         console.log("cellInfo", cellInfo);
       }
     }
     return board.map(e => (
-      <SquareOne propKey={e.key} clickFunc={this.handleClick} />
+      <SquareOne
+        key={e.key}
+        propKey={e.key}
+        clickFunc={this.handleClick}
+        style={{ background: this.state.color }}
+        height={e.height}
+        width={e.width}
+        isActive={e.isActive}
+      />
     ));
   }
 
@@ -56,24 +72,8 @@ class BoardOne extends Component {
     return (
       <div className="board-me">
         <Container>
+          <BtnTest />
           <div className="border1-row">{this.renderSquare(9)}</div>
-          {/* <div className="border1-row">{this.renderSquare(9)}</div> */}
-
-          {/* <div className="border1-row">
-            {this.renderSquare(0)}
-            {this.renderSquare(1)}
-            {this.renderSquare(2)}
-          </div>
-          <div className="border1-row">
-            {this.renderSquare(3)}
-            {this.renderSquare(4)}
-            {this.renderSquare(5)}
-          </div>
-          <div className="border1-row">
-            {this.renderSquare(6)}
-            {this.renderSquare(7)}
-            {this.renderSquare(8)}
-          </div> */}
         </Container>
       </div>
     );
