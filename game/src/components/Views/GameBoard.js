@@ -18,66 +18,6 @@ const actions = {
 };
 
 class GameBoard extends Component {
-  constructor(props) {
-    super(props);
-    this.pieces = [];
-    // this.state = {
-    //   playerOne: true,
-    //   arrayPiecesPlayerOne: []
-    //   // stepNumberPlayerOne: 0,
-    //   // table: [{ squaresInBoard: Array(9).fill(null) }]
-    // };
-  }
-  // handleClick(i) {
-  //   const steps = this.state.steps.slice(0, this.state.stepNumber + 1);
-  //   const current = steps[steps.length - 1];
-  //   const squaresInBoard = current.squaresInBoard.slice();
-  //   squaresInBoard[i] = this.state.playerOne ? "miss" : "hit";
-  //   this.setState({
-  //     steps: steps.concat({
-  //       squaresInBoard: squaresInBoard
-  //     }),
-  //     playerOne: !this.state.playerOne,
-  //     stepNumber: steps.length
-  //   });
-  // }
-
-  // handleClick(x, y) {
-  //   console.log("%d, %d", x, y);
-  //   const steps = this.state.steps.slice(0, this.state.stepNumberPlayerOne + 1);
-  //   console.log("steps", steps);
-  //   const current = steps[steps.length - 1];
-  //   console.log("current", current);
-  //   const squaresInBoard = current.squaresInBoard.slice();
-  //   console.log("squaresInBoard", squaresInBoard);
-  //   if (this.pieces.length > 3) {
-  //     alert("Its full board");
-  //   }
-  //   // squaresInBoard[i] = this.state.playerOne ? "miss" : "hit";
-  //   squaresInBoard[x][y] = this.state.playerOne ? "water" : "piece";
-  //   this.setState({
-  //     steps: steps.concat({
-  //       squaresInBoard: squaresInBoard
-  //     }),
-  //     playerOne: !this.state.playerOne,
-  //     stepNumberPlayerOne: steps.length
-  //   });
-  // }
-  // estado
-
-  // handleClick(x, y) {
-  //   // console.log(propKey);
-  //   console.log("%d, %d", x, y);
-  //   console.log("clique");
-  //   // let width = x;
-  //   // let height = y;
-  //   let key = `${x}${y}`;
-  //   console.log("key", key);
-  //   // this.pieces.push(key);
-  //   console.log("pieces", this.pieces);
-  //   // const steps = this.state.piecesPlayerOne;
-  // }
-
   render() {
     const {
       data,
@@ -86,8 +26,7 @@ class GameBoard extends Component {
       value,
       propKey
     } = this.props;
-    // const steps = this.state.steps;
-    // const current = steps[this.state.stepNumberPlayerOne];
+
     return (
       <Container className="game">
         <Col className="game-board">
@@ -112,7 +51,7 @@ class GameBoard extends Component {
             </Col>
           </Col>
           <Row>
-            <Col xs="4">
+            <Col xs="5">
               <BoardOne
                 propKey={propKey}
                 value={value}
@@ -120,7 +59,7 @@ class GameBoard extends Component {
                 // squaresInBoard={current.squaresInBoard}
               />
             </Col>
-            <Col xs="4">
+            <Col xs="5">
               <p>{}</p>
               <h3>Puntaje {data} </h3>
               <button onClick={incrementCounter} className="btn btn-success">
