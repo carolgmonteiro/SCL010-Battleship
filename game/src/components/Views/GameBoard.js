@@ -48,10 +48,12 @@ class GameBoard extends Component {
 
               {/* </Link> */}
             </div>
+            <div className="stars"></div>
           </Col>
           <div className="table">
             <Row>
               <Col xs="4">
+                {/* <img src={require("./img/GRETA MASK.png")} /> */}
                 <p> My Board</p>
                 <BoardOne
                   className="home-content"
@@ -65,6 +67,8 @@ class GameBoard extends Component {
                 <button className="btn-start"> START</button>
               </Col>
               <Col xs="4">
+                {/* <img src={require("./img/DONALD-01.png")} />  */}
+
                 <p> Board Enemy </p>
                 <BoardTwo
                   className="home-content"

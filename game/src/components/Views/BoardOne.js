@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import SquareOne from "../Buttons/SquareOne";
 import "./BoardOne.css";
 import { Container } from "reactstrap";
-import BtnTest from "../Buttons/BtnTest";
 
 class BoardOne extends Component {
   constructor(props) {
@@ -14,7 +13,7 @@ class BoardOne extends Component {
       playerOneIsNext: true,
       arrayPiecesPlayerOne: this.pieces,
       isActive: false,
-      color: "white"
+      background: "white"
     };
   }
 
@@ -26,9 +25,8 @@ class BoardOne extends Component {
     if (this.pieces.length <= 2) {
       this.pieces.push(propKey);
       console.log("Piezas", this.pieces);
-      this.setState({
-        color: "red"
-      });
+
+      event.target.style.background = "red";
     } else {
       alert(" Solo puedes colocar 3 piezas ");
     }
@@ -60,7 +58,7 @@ class BoardOne extends Component {
         key={e.key}
         propKey={e.key}
         clickFunc={this.handleClick}
-        style={{ background: this.state.color }}
+        style={{ background: this.state.background }}
         height={e.height}
         width={e.width}
         isActive={e.isActive}
@@ -72,7 +70,6 @@ class BoardOne extends Component {
     return (
       <div className="board-me">
         <Container>
-          <BtnTest />
           <div className="border1-row">{this.renderSquare(9)}</div>
         </Container>
       </div>
