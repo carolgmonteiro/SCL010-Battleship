@@ -5,12 +5,7 @@ import SquareTwo from "../Buttons/SquareTwo";
 
 class BoardTwo extends Component {
   renderSquare(i) {
-    return (
-      <SquareTwo
-        value={this.props.squares[i]}
-        onClick={() => this.props.onClick(i)}
-      />
-    );
+    return <SquareTwo />;
   }
   render() {
     return (

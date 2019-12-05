@@ -23,7 +23,13 @@ ul {
 .game-board h1 {
   font-weight: 800;
   color: white;
-  font-size: 65px;
+  font-size: 45px;
+}
+
+.game-board p {
+  font-weight: 800;
+  color: white;
+  font-size: 20px;
 }
 .game-board h3 {
   font-weight: 800;
@@ -48,7 +54,12 @@ ul {
   border-radius: 0;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
     border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  margin: 80px;
 }
 .btn-start:hover {
   background-color: #ced4da;
+}
+
+.table {
+  margin-top: 168px;
 }

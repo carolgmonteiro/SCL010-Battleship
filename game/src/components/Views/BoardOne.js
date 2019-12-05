@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { Component } from "react";
 import SquareOne from "../Buttons/SquareOne";
 import "./BoardOne.css";
 import { Container } from "reactstrap";
@@ -30,19 +30,19 @@ class BoardOne extends Component {
         color: "red"
       });
     } else {
-      alert("no mas piezas");
+      alert(" Solo puedes colocar 3 piezas ");
     }
     return this.pieces;
   }
 
   renderSquare() {
     let board = [];
-    // let boardHeight = 3;
-    // let boardWidth = 3;
+    let boardHeight = 3;
+    let boardWidth = 3;
     let key;
     let cellInfo;
-    for (let x = 0; x < 5; x++) {
-      for (let y = 0; y < 5; y++) {
+    for (let x = 0; x < boardHeight; x++) {
+      for (let y = 0; y < boardWidth; y++) {
         key = `${x}${y}`;
         console.log("board", board);
         cellInfo = {

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import BoardOne from "./BoardOne";
-// import BoardTwo from "./BoardTwo";
+import BoardTwo from "./BoardTwo";
 import "./GameBoard.css";
 // import "./Home.css";
 import { Col, Row, Container } from "reactstrap";
@@ -36,49 +36,49 @@ class GameBoard extends Component {
             <button className="btn btn-outline-secondary">Home</button>
           </Link> */}
           <Col className="text-content">
-            <p>
+            {/* <p>
               En una imponente guerra épica, donde se enfrenta Greta Thunberg y
               Donald Trump con su poder político, teniendo 2 opciones : poder
               salvar a la Tierra o generar el comienzo de una extinción masiva.
               ¿Existirá realmente el cambio Climático? ¿Se salvará el planeta ?
-            </p>
+            </p> */}
 
-            <Col className="home-content">
+            <div className="home-content">
               {/* <Link to="/"> */}
-              <button className="btn-start"> START</button>
 
               {/* </Link> */}
-            </Col>
+            </div>
           </Col>
-          <Row>
-            <Col xs="5">
-              <BoardOne
-                propKey={propKey}
-                value={value}
-                // onClick={this.handleClick}
-                // squaresInBoard={current.squaresInBoard}
-              />
-            </Col>
-            <Col xs="5">
-              <p>{}</p>
-              <h3>Puntaje {data} </h3>
-              <button onClick={incrementCounter} className="btn btn-success">
-                +
-              </button>
-              <button onClick={decrementCounter} className="btn btn-danger">
-                -
-              </button>
-            </Col>
-            {/* <Col xs="4">
-              <BoardTwo
-                onClick={i => this.handleClick(i)}
-                squares={current.squares}
-              />
-            </Col> */}
-          </Row>
+          <div className="table">
+            <Row>
+              <Col xs="4">
+                <p> My Board</p>
+                <BoardOne
+                  className="home-content"
+                  propKey={propKey}
+                  value={value}
+                  // onClick={this.handleClick}
+                  // squaresInBoard={current.squaresInBoard}
+                />
+              </Col>
+              <Col xs="4">
+                <button className="btn-start"> START</button>
+              </Col>
+              <Col xs="4">
+                <p> Board Enemy </p>
+                <BoardTwo
+                  className="home-content"
+                  onClick={i => this.handleClick(i)}
+                />
+              </Col>
+            </Row>
+          </div>
         </Col>
       </Container>
     );
   }
 }
-export default connect(mapState, actions)(GameBoard);
+export default connect(
+  mapState,
+  actions
+)(GameBoard);

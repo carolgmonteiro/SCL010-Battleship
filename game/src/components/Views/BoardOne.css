@@ -3,4 +3,5 @@
   clear: both;
   content: "";
   display: table;
+  cursor: crosshair;
 }

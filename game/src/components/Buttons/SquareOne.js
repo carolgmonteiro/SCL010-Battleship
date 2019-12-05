@@ -15,7 +15,6 @@ function SquareOne({ propKey, clickFunc, style, height, width, isActive }) {
       }}
     >
       {isActive}
-      {propKey}
     </button>
   );
 }
