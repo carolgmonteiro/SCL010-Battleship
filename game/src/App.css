@@ -1,5 +1,6 @@
 .App {
+  margin: 0 auto;
   text-align: center;
-  min-height: 100vh;
+  min-height: 150vh;
   background: linear-gradient(90deg, black 50%, white 50%);
 }

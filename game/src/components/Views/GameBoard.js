@@ -30,49 +30,44 @@ class GameBoard extends Component {
     return (
       <Container className="game">
         <Col className="game-board">
-          <h1>BATTLE OF POWERS</h1>
-          <h3>The battle to save or destroy the world!</h3>
+          <img
+            className="logo"
+            src={require("../Views/img/BATTLE OF POWER-logo-room.svg")}
+            alt="logo-room"
+          />
           {/* <Link to="/">
             <button className="btn btn-outline-secondary">Home</button>
           </Link> */}
-          <Col className="text-content">
-            {/* <p>
-              En una imponente guerra épica, donde se enfrenta Greta Thunberg y
-              Donald Trump con su poder político, teniendo 2 opciones : poder
-              salvar a la Tierra o generar el comienzo de una extinción masiva.
-              ¿Existirá realmente el cambio Climático? ¿Se salvará el planeta ?
-            </p> */}
 
-            <div className="home-content">
-              {/* <Link to="/"> */}
-
-              {/* </Link> */}
-            </div>
-            <div className="stars"></div>
-          </Col>
           <div className="table">
             <Row>
               <Col xs="4">
-                {/* <img src={require("./img/GRETA MASK.png")} /> */}
+                <img
+                  className="faces"
+                  src={require("./img/GRETA MASK-01.png")}
+                  alt="trump"
+                />
                 <p> My Board</p>
                 <BoardOne
                   className="home-content"
                   propKey={propKey}
                   value={value}
-                  // onClick={this.handleClick}
-                  // squaresInBoard={current.squaresInBoard}
                 />
               </Col>
               <Col xs="4">
-                <button className="btn-start"> START</button>
+                <button className="btn-start">BATTLE</button>
               </Col>
               <Col xs="4">
-                {/* <img src={require("./img/DONALD-01.png")} />  */}
-
+                <img
+                  className="faces"
+                  src={require("./img/DONALD-01.png")}
+                  alt="trump"
+                />
                 <p> Board Enemy </p>
                 <BoardTwo
                   className="home-content"
-                  onClick={i => this.handleClick(i)}
+                  propKey={propKey}
+                  value={value}
                 />
               </Col>
             </Row>
@@ -82,7 +77,4 @@ class GameBoard extends Component {
     );
   }
 }
-export default connect(
-  mapState,
-  actions
-)(GameBoard);
+export default connect(mapState, actions)(GameBoard);
