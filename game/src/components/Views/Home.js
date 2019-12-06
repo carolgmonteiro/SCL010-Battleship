@@ -15,11 +15,10 @@ class Home extends Component {
   render() {
     return (
       <Container className="container">
-        <Col className="header-home">
+        <Row className="header-home">
           <h1>BATTLE OF POWERS</h1>
           <h3>The battle to save or destroy the world!</h3>
-        </Col>
-        <Row>
+
           <div className="text-content">
             <p>
               En una imponente guerra épica, donde se enfrenta Greta Thunberg y
