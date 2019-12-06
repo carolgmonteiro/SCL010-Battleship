@@ -35,13 +35,13 @@ class BoardOne extends Component {
 
   renderSquare() {
     let board = [];
-    let boardHeight = 3;
-    let boardWidth = 3;
+    let boardHeight = 5;
+    let boardWidth = 5;
     let key;
     let cellInfo;
     for (let x = 0; x < boardHeight; x++) {
       for (let y = 0; y < boardWidth; y++) {
-        key = `${x}${y}`;
+        key = `L${x}${y}`;
         console.log("board", board);
         cellInfo = {
           key: key,
@@ -68,11 +68,9 @@ class BoardOne extends Component {
 
   render() {
     return (
-      <div className="board-me">
-        <Container>
-          <div className="border1-row">{this.renderSquare(9)}</div>
-        </Container>
-      </div>
+      <Container>
+        <div className="border1-row">{this.renderSquare(9)}</div>
+      </Container>
     );
   }
 }
