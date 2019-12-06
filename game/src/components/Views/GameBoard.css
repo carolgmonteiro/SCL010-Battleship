@@ -1,14 +1,16 @@
 .game {
-  padding-top: 3rem;
-  position: absolute;
+  padding-top: 1rem;
+  /* padding-left: 1rem;
+  padding-right: 4rem; */
+  /* position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); */
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   margin: 0 auto;
-  /* height: 120vh; */
+  height: 200vh;
   width: 100%;
   line-height: 0.5;
   background: linear-gradient(90deg, black 50%, white 50%);
@@ -49,34 +51,6 @@ ul {
 .game-board h3 {
   font-weight: 800;
   color: gray;
-}
-.btn-start {
-  font-family: Lato;
-  font-size: 50px;
-  display: inline-block;
-  font-weight: 800;
-  color: black;
-  text-align: center;
-  vertical-align: middle;
-  cursor: pointer;
-  -webkit-user-select: none;
-  user-select: none;
-  -webkit-box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.75);
-  box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.75);
-  /* background-color: rgba(255, 238, 0, 0.95); */
-  border: 1px solid #0c0c0c;
-  height: 3rem;
-  width: 10rem;
-  font-size: 0.875rem;
-  line-height: 1rem;
-  border-radius: 0;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  margin: 5px;
-}
-.btn-start:hover {
-  background-color: #ced4da;
 }
 
 .table {
