@@ -11,6 +11,7 @@
   /* height: 120vh; */
   width: 100%;
   line-height: 0.5;
+  background: linear-gradient(90deg, black 50%, white 50%);
 }
 .logo {
   width: 40%;
