@@ -4,6 +4,7 @@ import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { Provider } from "react-redux";
+import { BrowserRouter } from "react-router-dom";
 import { configureStore } from "../src/store/configureStore";
 
 //toma las configuraciones de store
@@ -15,7 +16,9 @@ const rootEl = document.getElementById("root");
 let render = () => {
   ReactDOM.render(
     <Provider store={store}>
-      <App />
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
     </Provider>,
     rootEl
   );

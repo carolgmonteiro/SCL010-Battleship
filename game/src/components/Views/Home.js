@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./Home.css";
-//import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Container, Col, Row } from "reactstrap";
 
 class Home extends Component {
@@ -28,12 +28,12 @@ class Home extends Component {
               ¿Existirá realmente el cambio Climático? ¿Se salvará el planeta ?
             </p>
           </div>
+          <Col className="home-content">
+            <Link to="/gameboard">
+              <button className="btn-start">LET THE GAME BEGIN!</button>
+            </Link>
+          </Col>
         </Row>
-        <Col className="home-content">
-          {/* <Link to="/"> */}
-          <button className="btn-start">START</button>
-          {/* </Link> */}
-        </Col>
       </Container>
     );
   }
