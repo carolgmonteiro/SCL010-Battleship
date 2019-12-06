@@ -1,36 +1,26 @@
 import React, { Component } from "react";
-import SquareTwo from "../Buttons/SquareTwo";
-import "./BoardTwo.css";
-import { Container } from "reactstrap";
+import SquareOne from "../Buttons/SquareOne";
+import "./BoardEnemy.css";
+import { Container, Col, Row } from "reactstrap";
+import { Link } from "react-router-dom";
 
-class BoardTwo extends Component {
+class BoardEnemy extends Component {
   constructor(props) {
     super(props);
-    this.piecesTwo = [];
+    this.pieces = [];
     this.renderSquare = this.renderSquare.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.state = {
       playerOneIsNext: true,
-      arrayPiecesPlayerOne: this.piecesTwo,
+      arrayPiecesPlayerOne: this.pieces,
       isActive: false,
       background: "white"
     };
   }
 
   handleClick(event, propKey) {
+    event.preventDefault();
     console.log("testeando", propKey);
-    const arrayPiecesPlayerOne = this.state.arrayPiecesPlayerOne;
-    console.log("arrayPiecesPlayerOne", arrayPiecesPlayerOne);
-
-    if (this.piecesTwo.length <= 5) {
-      this.piecesTwo.push(propKey);
-      console.log("Piezas", this.piecesTwo);
-
-      event.target.style.background = "red";
-    } else {
-      alert(" Solo puedes colocar 6 piezas ");
-    }
-    return this.piecesTwo;
   }
 
   renderSquare() {
@@ -41,7 +31,7 @@ class BoardTwo extends Component {
     let cellInfo;
     for (let x = 0; x < boardHeight; x++) {
       for (let y = 0; y < boardWidth; y++) {
-        key = `R${x}${y}`;
+        key = `Enemy${x}${y}`;
         console.log("board", board);
         cellInfo = {
           key: key,
@@ -54,7 +44,7 @@ class BoardTwo extends Component {
       }
     }
     return board.map(e => (
-      <SquareTwo
+      <SquareOne
         key={e.key}
         propKey={e.key}
         clickFunc={this.handleClick}
@@ -68,13 +58,13 @@ class BoardTwo extends Component {
 
   render() {
     return (
-      <div className="board-me">
-        <Container>
-          <div className="border2-row">{this.renderSquare(9)}</div>
-        </Container>
-      </div>
+      <Row>
+        <Col xs="10">
+          <div className="boardEnemy">{this.renderSquare(9)}</div>
+        </Col>
+      </Row>
     );
   }
 }
 
-export default BoardTwo;
+export default BoardEnemy;

@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import SquareOne from "../Buttons/SquareOne";
 import "./BoardOne.css";
-import { Container } from "reactstrap";
+import { Container, Col, Row } from "reactstrap";
+import { Link } from "react-router-dom";
 
 class BoardOne extends Component {
   constructor(props) {
@@ -18,20 +19,32 @@ class BoardOne extends Component {
   }
 
   handleClick(event, propKey) {
+    event.preventDefault();
     console.log("testeando", propKey);
     const arrayPiecesPlayerOne = this.state.arrayPiecesPlayerOne;
     console.log("arrayPiecesPlayerOne", arrayPiecesPlayerOne);
 
-    if (this.pieces.length <= 2) {
+    if (this.pieces.length <= 5) {
       this.pieces.push(propKey);
       console.log("Piezas", this.pieces);
 
       event.target.style.background = "red";
     } else {
-      alert(" Solo puedes colocar 3 piezas ");
+      alert(" Solo puedes colocar 6 piezas ");
     }
     return this.pieces;
   }
+
+  // handleSubmit = event => {
+  //   event.preventDefault();
+  //   //para hacer update del evento
+  //   if (this.state.id) {
+  //     this.props.updateEvent(this.state);
+  //   } else {
+  //     //para crear nuevo evento
+  //     this.props.createEvent(this.state);
+  //   }
+  // };
 
   renderSquare() {
     let board = [];
@@ -68,9 +81,19 @@ class BoardOne extends Component {
 
   render() {
     return (
-      <Container>
-        <div className="border1-row">{this.renderSquare(9)}</div>
-      </Container>
+      <Row>
+        <Col xs="10">
+          <div className="border1-row">{this.renderSquare(9)}</div>
+        </Col>
+        {/* <Col>
+          <Link to="/">
+            <button className="btn-start">Home</button>
+          </Link>
+          <button className="btn-start" type="submit">
+            BATTLE
+          </button>
+        </Col> */}
+      </Row>
     );
   }
 }
