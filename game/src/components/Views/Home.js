@@ -21,17 +21,17 @@ class Home extends Component {
           src={require("../Views/img/BATTLE OF POWER-logo-gameboard.svg")}
           alt="logo-room"
         />
-        <div className="Sub-title">
+        <Col className="Sub-title">
           <p>YOU CAN SAVE OR DESTROY THE WORLD!!</p>
-        </div>
-        <div className="text-content">
+        </Col>
+        <Col className="text-content">
           <p>Will there really be climate Change? Will the planet be Saved?</p>
-        </div>
-        <div className="home-content">
+        </Col>
+        <Col className="home-content">
           <Link to="/gameboard">
             <button className="btn-play"> START </button>
           </Link>
-        </div>
+        </Col>
         {/* </Row> */}
       </Container>
     );
