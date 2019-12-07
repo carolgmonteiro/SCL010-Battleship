@@ -75,3 +75,8 @@
 .btn-play:hover {
   background-color: #ced4da;
 }
+
+.text- content .col {
+  flex-grow: 1;
+  max-width: 136%;
+}

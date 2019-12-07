@@ -15,7 +15,6 @@ class Home extends Component {
   render() {
     return (
       <Container className="container">
-        {/* <Row className="header-home">  */}
         <img
           id="logo"
           src={require("../Views/img/BATTLE OF POWER-logo-gameboard.svg")}
@@ -32,7 +31,6 @@ class Home extends Component {
             <button className="btn-play"> START </button>
           </Link>
         </Col>
-        {/* </Row> */}
       </Container>
     );
   }
