@@ -35,17 +35,6 @@ class BoardOne extends Component {
     return this.pieces;
   }
 
-  // handleSubmit = event => {
-  //   event.preventDefault();
-  //   //para hacer update del evento
-  //   if (this.state.id) {
-  //     this.props.updateEvent(this.state);
-  //   } else {
-  //     //para crear nuevo evento
-  //     this.props.createEvent(this.state);
-  //   }
-  // };
-
   renderSquare() {
     let board = [];
     let boardHeight = 5;
