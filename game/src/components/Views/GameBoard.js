@@ -100,14 +100,14 @@ class GameBoard extends Component {
                       alt="trump"
                     />
                     <p>Donald | My Board</p>
-                    {isOpenBoardTwo && (
+                    {/* {isOpenBoardTwo && (
                       <BoardTwo className="home-content" propKey={propKey} />
-                    )}
-                    {/* <BoardTwo
+                    )} */}
+                    <BoardTwo
                       className="home-content"
                       propKey={propKey}
                       value={value}
-                    /> */}
+                    />
                   </Col>
                   <Col xs="4">
                     <button

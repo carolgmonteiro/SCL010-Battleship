@@ -2,8 +2,10 @@
   min-height: 100vh;
   min-width: -moz-fit-content;
   height: 100%;
-
-  background: url(./img/maxresdefault.jpg) no-repeat center top;
+  margin: 0 auto;
+  background: url(./img/greta-trump.gif);
+  background-size: 100% 100% !important;
+  -webkit-background-size: cover !important;
   opacity: 0.82;
 }
 
@@ -20,24 +22,22 @@
 }
 
 .Sub-title {
-  text-shadow: 1px 2px 4px rgb(3, 3, 3);
-  text-align: right;
-  color: #0c0c0c;
-  font-size: 27px;
-  font-weight: bolder;
+  /* text-shadow: 1px 2px 4px rgb(3, 3, 3); */
+  /* text-shadow: 6px 6px 8px #ffffff; */
   text-align: center;
-
-  font-weight: bolder;
-
-  margin: -53px;
+  color: #ffffff;
+  font-size: 27px;
+  font-weight: 800;
+  text-align: center;
+  /* margin: -53px; */
 }
 
 .text-content {
   text-align: center;
   color: white;
   font-size: 25px;
-  font-weight: bolder;
-  padding-top: 360px;
+  font-weight: 800;
+  padding-top: 7rem;
   text-shadow: 1px 2px 3px rgb(3, 3, 3);
 }
 
