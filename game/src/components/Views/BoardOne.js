@@ -29,7 +29,7 @@ class BoardOne extends Component {
 
       event.target.className = "btn-pieces-greta";
     } else {
-      alert("DIt´s your turn to hit Donald!");
+      alert("It´s your turn to hit Donald!");
     }
     return this.piecesOne;
   }
