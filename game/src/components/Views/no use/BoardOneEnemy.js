@@ -1,35 +1,28 @@
 import React, { Component } from "react";
 import Square from "../Buttons/Square";
-import "./BoardTwo.css";
-import { Container, Col, Row } from "reactstrap";
+import "./BoardOneEnemy.css";
+import { Col, Row } from "reactstrap";
 
-class BoardTwo extends Component {
+class BoardEnemy extends Component {
   constructor(props) {
     super(props);
-    this.piecesTwo = [];
+    this.hitsPlayerOne = ["L11", "L23", "L04", "L42", "L30"];
     this.renderSquare = this.renderSquare.bind(this);
-    this.handleClick = this.handleClick.bind(this);
+    this.handleHit = this.handleHit.bind(this);
     this.state = {
       playerOneIsNext: true,
-      arrayPiecesPlayerTwo: this.piecesTwo,
       isActive: false
     };
   }
 
-  handleClick(event, propKey) {
-    // console.log("testeando", propKey);
-    // const arrayPiecesPlayerTwo = this.state.arrayPiecesPlayerTwo;
-    // console.log("PiecesTwo", arrayPiecesPlayerTwo);
-
-    if (this.piecesTwo.length < 5) {
-      this.piecesTwo.push(propKey);
-      console.log("PiecesTwo", this.piecesTwo);
-
-      event.target.className = "btn-pieces-donald";
+  handleHit(event, propKey) {
+    event.preventDefault();
+    if (this.hitsPlayerOne.includes(propKey)) {
+      console.log("HOLA");
+      event.target.className = "btn-hit-pieces-one";
     } else {
-      alert("It´s your turn to hit Greta!");
+      event.target.className = "btn-hit-pieces-one-water";
     }
-    return this.piecesTwo;
   }
 
   renderSquare() {
@@ -40,13 +33,12 @@ class BoardTwo extends Component {
     let cellInfo;
     for (let x = 0; x < boardHeight; x++) {
       for (let y = 0; y < boardWidth; y++) {
-        key = `R${x}${y}`;
+        key = `L${x}${y}`;
         console.log("board", board);
         cellInfo = {
           key: key,
           height: x,
-          width: y,
-          isActive: false
+          width: y
         };
         board.push(cellInfo);
         console.log("cellInfo", cellInfo);
@@ -56,8 +48,7 @@ class BoardTwo extends Component {
       <Square
         key={e.key}
         propKey={e.key}
-        clickFunc={this.handleClick}
-        style={{ className: this.state.className }}
+        clickFunc={this.handleHit}
         height={e.height}
         width={e.width}
         isActive={e.isActive}
@@ -69,11 +60,11 @@ class BoardTwo extends Component {
     return (
       <Row>
         <Col xs="10">
-          <div className="border2-row">{this.renderSquare(25)}</div>
+          <div className="boardEnemy">{this.renderSquare(9)}</div>
         </Col>
       </Row>
     );
   }
 }
 
-export default BoardTwo;
+export default BoardEnemy;

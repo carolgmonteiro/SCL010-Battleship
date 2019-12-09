@@ -40,10 +40,9 @@
   font-size: 16px;
 }
 
-.btn-hit-pieces-one {
-  background-image: url(../Views/img/factory.svg);
+.btn-hit-pieces-two {
+  background-image: url(../Views/img/trees-fire.svg);
   background-size: cover;
-  /* background: red; */
   border: 1px solid gray;
   font-size: 50px;
   font-weight: bold;
@@ -59,8 +58,8 @@
   font-size: 16px;
 }
 
-.btn-hit-pieces-one-water {
-  background-image: url(../Views/img/trees.svg);
+.btn-hit-pieces-two-fail {
+  background-image: url(../Views/img/close.svg);
   background-size: cover;
   /* background: red; */
   border: 1px solid gray;
