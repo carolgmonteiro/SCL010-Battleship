@@ -1,0 +1,60 @@
+.btn-square2 {
+  background: #fff;
+  border: 1px solid gray;
+  font-size: 50px;
+  font-weight: bold;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  text-align: center;
+  width: 80px;
+  line-height: 80px;
+  height: 80px;
+  display: inline-block;
+  transition: 0.2s;
+  font-size: 16px;
+}
+.btn-square2:focus {
+  outline: none;
+}
+.btn-square2:hover {
+  background-color: grey;
+}
+
+.btn-pieces-donald {
+  background-image: url(../Views/img/factory.svg);
+  background-size: cover;
+  /* background: red; */
+  border: 1px solid gray;
+  font-size: 50px;
+  font-weight: bold;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  text-align: center;
+  width: 60px;
+  line-height: 60px;
+  height: 60px;
+  display: inline-block;
+  transition: 0.2s;
+  font-size: 16px;
+}
+
+.btn-hit-pieces-two {
+  background-image: url(../Views/img/trees.svg);
+  background-size: cover;
+  /* background: red; */
+  border: 1px solid gray;
+  font-size: 50px;
+  font-weight: bold;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  text-align: center;
+  width: 60px;
+  line-height: 60px;
+  height: 60px;
+  display: inline-block;
+  transition: 0.2s;
+  font-size: 16px;
+}
