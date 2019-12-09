@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import SquareTwo from "../Buttons/SquareTwo";
+import Square from "../Buttons/Square";
 import "./BoardTwo.css";
-import { Container } from "reactstrap";
+import { Container, Col, Row } from "reactstrap";
 
 class BoardTwo extends Component {
   constructor(props) {
@@ -11,24 +11,23 @@ class BoardTwo extends Component {
     this.handleClick = this.handleClick.bind(this);
     this.state = {
       playerOneIsNext: true,
-      arrayPiecesPlayerOne: this.piecesTwo,
-      isActive: false,
-      background: "white"
+      arrayPiecesPlayerTwo: this.piecesTwo,
+      isActive: false
     };
   }
 
   handleClick(event, propKey) {
-    console.log("testeando", propKey);
-    const arrayPiecesPlayerOne = this.state.arrayPiecesPlayerOne;
-    console.log("arrayPiecesPlayerOne", arrayPiecesPlayerOne);
+    // console.log("testeando", propKey);
+    // const arrayPiecesPlayerTwo = this.state.arrayPiecesPlayerTwo;
+    // console.log("PiecesTwo", arrayPiecesPlayerTwo);
 
-    if (this.piecesTwo.length <= 5) {
+    if (this.piecesTwo.length < 5) {
       this.piecesTwo.push(propKey);
-      console.log("Piezas", this.piecesTwo);
+      console.log("PiecesTwo", this.piecesTwo);
 
-      event.target.style.background = "red";
+      event.target.className = "btn-pieces-donald";
     } else {
-      alert(" Solo puedes colocar 6 piezas ");
+      alert("It´s your turn to hit Greta!");
     }
     return this.piecesTwo;
   }
@@ -54,11 +53,11 @@ class BoardTwo extends Component {
       }
     }
     return board.map(e => (
-      <SquareTwo
+      <Square
         key={e.key}
         propKey={e.key}
         clickFunc={this.handleClick}
-        style={{ background: this.state.background }}
+        style={{ className: this.state.className }}
         height={e.height}
         width={e.width}
         isActive={e.isActive}
@@ -68,11 +67,11 @@ class BoardTwo extends Component {
 
   render() {
     return (
-      <div className="board-me">
-        <Container>
-          <div className="border2-row">{this.renderSquare(9)}</div>
-        </Container>
-      </div>
+      <Row>
+        <Col xs="10">
+          <div className="border2-row">{this.renderSquare(25)}</div>
+        </Col>
+      </Row>
     );
   }
 }

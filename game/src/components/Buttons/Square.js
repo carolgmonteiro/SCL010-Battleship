@@ -1,7 +1,7 @@
 import React from "react";
-import "./SquareOne.css";
+import "./Square.css";
 
-function SquareOne({ propKey, clickFunc, style, height, width, isActive }) {
+function Square({ propKey, clickFunc, style, height, width, isActive }) {
   return (
     <button
       key={propKey}
@@ -19,4 +19,4 @@ function SquareOne({ propKey, clickFunc, style, height, width, isActive }) {
   );
 }
 
-export default SquareOne;
+export default Square;

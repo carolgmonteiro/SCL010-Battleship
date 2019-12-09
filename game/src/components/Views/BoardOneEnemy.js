@@ -1,37 +1,32 @@
 import React, { Component } from "react";
 import Square from "../Buttons/Square";
-import "./BoardOne.css";
+import "./BoardOneEnemy.css";
 import { Container, Col, Row } from "reactstrap";
 import { Link } from "react-router-dom";
 
-class BoardOne extends Component {
+class BoardEnemy extends Component {
   constructor(props) {
     super(props);
-    this.piecesOne = [];
+    this.hitsPlayerOne = ["L11", "L23", "L04", "L42", "L30"];
     this.renderSquare = this.renderSquare.bind(this);
-    this.handleClick = this.handleClick.bind(this);
+    this.handleHit = this.handleHit.bind(this);
     this.state = {
       playerOneIsNext: true,
-      arrayPiecesPlayerOne: this.piecesOne,
       isActive: false
     };
   }
 
-  handleClick(event, propKey) {
+  handleHit(event, propKey) {
     event.preventDefault();
     // console.log("testeando", propKey);
     // const arrayPiecesPlayerOne = this.state.arrayPiecesPlayerOne;
     // console.log("arrayPiecesPlayerOne", arrayPiecesPlayerOne);
-
-    if (this.piecesOne.length < 5) {
-      this.piecesOne.push(propKey);
-      console.log("PiecesOne", this.piecesOne);
-
-      event.target.className = "btn-pieces-greta";
+    if (this.hitsPlayerOne.includes(propKey)) {
+      console.log("poto");
+      event.target.className = "btn-hit-pieces-one";
     } else {
-      alert("It´s your turn to hit Donald!");
+      event.target.className = "btn-hit-pieces-one-water";
     }
-    return this.piecesOne;
   }
 
   renderSquare() {
@@ -47,8 +42,7 @@ class BoardOne extends Component {
         cellInfo = {
           key: key,
           height: x,
-          width: y,
-          isActive: false
+          width: y
         };
         board.push(cellInfo);
         console.log("cellInfo", cellInfo);
@@ -58,8 +52,7 @@ class BoardOne extends Component {
       <Square
         key={e.key}
         propKey={e.key}
-        clickFunc={this.handleClick}
-        style={{ className: this.state.className }}
+        clickFunc={this.handleHit}
         height={e.height}
         width={e.width}
         isActive={e.isActive}
@@ -71,19 +64,11 @@ class BoardOne extends Component {
     return (
       <Row>
         <Col xs="10">
-          <div className="border1-row">{this.renderSquare(25)}</div>
+          <div className="boardEnemy">{this.renderSquare(9)}</div>
         </Col>
-        {/* <Col>
-          <Link to="/">
-            <button className="btn-start">Home</button>
-          </Link>
-          <button className="btn-start" type="submit">
-            BATTLE
-          </button>
-        </Col> */}
       </Row>
     );
   }
 }
 
-export default BoardOne;
+export default BoardEnemy;

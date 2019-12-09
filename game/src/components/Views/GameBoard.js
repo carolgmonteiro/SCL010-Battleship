@@ -6,7 +6,8 @@ import { Col, Row, Container } from "reactstrap";
 import { connect } from "react-redux";
 import { incrementCounter, decrementCounter } from "../../actions/action";
 import { Link } from "react-router-dom";
-import BoardEnemy from "./BoardEnemy";
+import BoardOneEnemy from "./BoardOneEnemy";
+import BoardTwoEnemy from "./BoardTwoEnemy";
 //lee la data que está en testReducerGame.js
 const mapState = state => ({
   data: state.test.data
@@ -18,10 +19,12 @@ const actions = {
 };
 
 class GameBoard extends Component {
-  state = {
-    isOpenBoardTwo: false
-  };
-
+  constructor(props) {
+    super(props);
+    this.state = {
+      isOpenBoardTwo: false
+    };
+  }
   // open and close in the same button "Create Event"
   handleBoardTwoIsOpen = () => {
     this.setState(prevState => ({
@@ -49,7 +52,7 @@ class GameBoard extends Component {
               src={require("../Views/img/BATTLE OF POWER-logo-gameboard.svg")}
               alt="logo-room"
             />
-            <div className="table">
+            <div className="table" id="greta">
               <Row>
                 <Col xs="4">
                   <img
@@ -59,18 +62,14 @@ class GameBoard extends Component {
                   />
                   <p>Greta | My board</p>
 
-                  <BoardOne
-                    className="home-content"
-                    propKey={propKey}
-                    value={value}
-                  />
+                  <BoardOne className="home-content" propKey={propKey} />
                 </Col>
                 <Col xs="4">
                   <button
                     className="btn-start"
                     onClick={this.handleBoardTwoIsOpen}
                   >
-                    BATTLE
+                    BATTLE DONALD
                   </button>
                 </Col>
                 <Col xs="4">
@@ -80,23 +79,19 @@ class GameBoard extends Component {
                     alt="trump"
                   />
                   <p> Donald | Board Enemy </p>
-                  {isOpenBoardTwo && (
+                  {/* {isOpenBoardTwo && (
                     <BoardEnemy
                       className="home-content"
                       propKey={propKey}
                       value={value}
                     />
-                  )}
-                  {/* <BoardTwo
-                    className="home-content"
-                    propKey={propKey}
-                    value={value}
-                  /> */}
+                  )} */}
+                  <BoardOneEnemy className="home-content" propKey={propKey} />
                 </Col>
               </Row>
             </div>
             <Row>
-              <div className="table">
+              <div className="table" id="Donald">
                 <Row>
                   <Col xs="4">
                     <img
@@ -105,7 +100,10 @@ class GameBoard extends Component {
                       alt="trump"
                     />
                     <p>Donald | My Board</p>
-                    <BoardOne
+                    {/* {isOpenBoardTwo && (
+                      <BoardTwo className="home-content" propKey={propKey} />
+                    )} */}
+                    <BoardTwo
                       className="home-content"
                       propKey={propKey}
                       value={value}
@@ -126,18 +124,18 @@ class GameBoard extends Component {
                       alt="greta"
                     />
                     <p> Greta | Board Enemy </p>
-                    {isOpenBoardTwo && (
+                    {/* {isOpenBoardTwo && (
                       <BoardEnemy
                         className="home-content"
                         propKey={propKey}
                         value={value}
                       />
-                    )}
-                    {/* <BoardTwo
-                    className="home-content"
-                    propKey={propKey}
-                    value={value}
-                  /> */}
+                    )} */}
+                    <BoardTwoEnemy
+                      className="home-content"
+                      propKey={propKey}
+                      value={value}
+                    />
                   </Col>
                 </Row>
               </div>

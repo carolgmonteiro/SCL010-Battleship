@@ -1,26 +1,34 @@
 import React, { Component } from "react";
-import SquareOne from "../Buttons/SquareOne";
-import "./BoardEnemy.css";
+import Square from "../Buttons/Square";
+import "./BoardTwo.css";
 import { Container, Col, Row } from "reactstrap";
-import { Link } from "react-router-dom";
 
-class BoardEnemy extends Component {
+class BoardTwo extends Component {
   constructor(props) {
     super(props);
-    this.pieces = [];
+    this.hitsPlayerTwo = [];
     this.renderSquare = this.renderSquare.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.state = {
       playerOneIsNext: true,
-      arrayPiecesPlayerOne: this.pieces,
-      isActive: false,
-      background: "white"
+      arrayPiecesPlayerTwo: this.piecesTwo,
+      isActive: false
     };
   }
 
   handleClick(event, propKey) {
-    event.preventDefault();
-    console.log("testeando", propKey);
+    // console.log("testeando", propKey);
+    // const arrayPiecesPlayerTwo = this.state.arrayPiecesPlayerTwo;
+    // console.log("PiecesTwo", arrayPiecesPlayerTwo);
+
+    if (this.hitsPlayerTwo.length < 1) {
+      this.hitsPlayerTwo.push(propKey);
+      console.log("PiecesTwo", this.hitsPlayerTwo);
+
+      event.target.className = "btn-hit-pieces-two";
+    } else {
+    }
+    return this.hitsPlayerTwo;
   }
 
   renderSquare() {
@@ -31,7 +39,7 @@ class BoardEnemy extends Component {
     let cellInfo;
     for (let x = 0; x < boardHeight; x++) {
       for (let y = 0; y < boardWidth; y++) {
-        key = `Enemy${x}${y}`;
+        key = `R${x}${y}`;
         console.log("board", board);
         cellInfo = {
           key: key,
@@ -44,11 +52,11 @@ class BoardEnemy extends Component {
       }
     }
     return board.map(e => (
-      <SquareOne
+      <Square
         key={e.key}
         propKey={e.key}
         clickFunc={this.handleClick}
-        style={{ background: this.state.background }}
+        style={{ className: this.state.className }}
         height={e.height}
         width={e.width}
         isActive={e.isActive}
@@ -60,11 +68,11 @@ class BoardEnemy extends Component {
     return (
       <Row>
         <Col xs="10">
-          <div className="boardEnemy">{this.renderSquare(9)}</div>
+          <div className="border2-row">{this.renderSquare(25)}</div>
         </Col>
       </Row>
     );
   }
 }
 
-export default BoardEnemy;
+export default BoardTwo;
