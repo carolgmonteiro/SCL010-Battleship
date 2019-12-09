@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import Square from "../Buttons/Square";
+import Square from "../../Buttons/Square";
 import "./BoardTwo.css";
-import { Container, Col, Row } from "reactstrap";
+import { Col, Row } from "reactstrap";
 
 class BoardTwo extends Component {
   constructor(props) {
     super(props);
-    this.hitsPlayerTwo = [];
+    this.piecesTwo = [];
     this.renderSquare = this.renderSquare.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.state = {
@@ -17,18 +17,15 @@ class BoardTwo extends Component {
   }
 
   handleClick(event, propKey) {
-    // console.log("testeando", propKey);
-    // const arrayPiecesPlayerTwo = this.state.arrayPiecesPlayerTwo;
-    // console.log("PiecesTwo", arrayPiecesPlayerTwo);
+    if (this.piecesTwo.length < 5) {
+      this.piecesTwo.push(propKey);
+      console.log("PiecesTwo", this.piecesTwo);
 
-    if (this.hitsPlayerTwo.length < 1) {
-      this.hitsPlayerTwo.push(propKey);
-      console.log("PiecesTwo", this.hitsPlayerTwo);
-
-      event.target.className = "btn-hit-pieces-two";
+      event.target.className = "btn-pieces-donald";
     } else {
+      alert("It´s your turn to hit Greta!");
     }
-    return this.hitsPlayerTwo;
+    return this.piecesTwo;
   }
 
   renderSquare() {

@@ -1,17 +1,9 @@
 import React, { Component, Fragment } from "react";
 import "./Home.css";
 import { Link } from "react-router-dom";
-import { Container, Col, Row } from "reactstrap";
+import { Col } from "reactstrap";
 
 class Home extends Component {
-  constructor() {
-    super();
-    this.start = this.start.bind(this);
-  }
-  start() {
-    // eslint-disable-next-line no-alert
-    alert("Hola!");
-  }
   render() {
     return (
       <Fragment>
