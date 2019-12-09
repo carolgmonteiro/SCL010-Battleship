@@ -1,5 +1,82 @@
-.header-home {
+.container {
   min-height: 100vh;
-  width: 100%;
-  background-color: indianred;
+  min-width: -moz-fit-content;
+  height: 100%;
+
+  background: url(./img/maxresdefault.jpg) no-repeat center top;
+  opacity: 0.82;
+}
+
+.header-home {
+  text-align: center;
+  margin: inherit;
+}
+
+#logo {
+  margin: 3px;
+  text-align: center;
+  width: 95%;
+  padding: 5%;
+}
+
+.Sub-title {
+  text-shadow: 1px 2px 4px rgb(3, 3, 3);
+  text-align: right;
+  color: #0c0c0c;
+  font-size: 27px;
+  font-weight: bolder;
+  text-align: center;
+
+  font-weight: bolder;
+
+  margin: -53px;
+}
+
+.text-content {
+  text-align: center;
+  color: white;
+  font-size: 25px;
+  font-weight: bolder;
+  padding-top: 360px;
+  text-shadow: 1px 2px 3px rgb(3, 3, 3);
+}
+
+.home-content {
+  text-align: center;
+  margin: -7px;
+}
+
+.btn-play {
+  margin: 10px;
+  font-family: Lato;
+  font-size: 50px;
+  display: inline-block;
+  font-weight: 800;
+  color: black;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.75);
+  background-color: rgba(255, 238, 0, 0.95);
+  border: 1px solid #0c0c0c;
+  height: 3rem;
+  width: 10rem;
+  font-size: 0.875rem;
+  line-height: 1rem;
+  border-radius: 0;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  margin: 10px;
+}
+.btn-play:hover {
+  background-color: #ced4da;
+}
+
+.text- content .col {
+  flex-grow: 1;
+  max-width: 136%;
 }

@@ -15,24 +15,22 @@ class Home extends Component {
   render() {
     return (
       <Container className="container">
-        <Row className="header-home">
-          <h1>BATTLE OF POWERS</h1>
-          <h3>The battle to save or destroy the world!</h3>
-
-          <div className="text-content">
-            <p>
-              En una imponente guerra épica, donde se enfrenta Greta Thunberg y
-              Donald Trump con su poder político, teniendo 2 opciones : poder
-              salvar a la Tierra o generar el comienzo de una extinción masiva.
-              ¿Existirá realmente el cambio Climático? ¿Se salvará el planeta ?
-            </p>
-          </div>
-          <Col className="home-content">
-            <Link to="/gameboard">
-              <button className="btn-start">LET THE GAME BEGIN!</button>
-            </Link>
-          </Col>
-        </Row>
+        <img
+          id="logo"
+          src={require("../Views/img/BATTLE OF POWER-logo-gameboard.svg")}
+          alt="logo-room"
+        />
+        <Col className="Sub-title">
+          <p>YOU CAN SAVE OR DESTROY THE WORLD!!</p>
+        </Col>
+        <Col className="text-content">
+          <p>Will there really be climate Change? Will the planet be Saved?</p>
+        </Col>
+        <Col className="home-content">
+          <Link to="/gameboard">
+            <button className="btn-play"> START </button>
+          </Link>
+        </Col>
       </Container>
     );
   }
