@@ -251,7 +251,11 @@ class GameBoard extends Component {
                   {/* <p>My board</p> */}
 
                   <Col xs="11">
-                    <div className="border1-row">{this.renderBoardOne(25)}</div>
+                    <div className="board">
+                      <div className="border1-row">
+                        {this.renderBoardOne(25)}
+                      </div>
+                    </div>
                   </Col>
                 </Col>
                 <Col xs="4">
@@ -275,14 +279,21 @@ class GameBoard extends Component {
                   {/* <p> Enemy Board </p> */}
 
                   <Col xs="11">
-                    <div className="boardEnemy">
-                      {this.renderEnemyBoardOne(25)}
+                    <div className="board">
+                      <div className="boardEnemy">
+                        {this.renderEnemyBoardOne(25)}
+                      </div>
                     </div>
                   </Col>
                 </Col>
               </Row>
             </div>
             <Row>
+              {/* <img
+                className="logo"
+                src={require("../Views/img/BATTLE OF POWER-logo-gameboard.svg")}
+                alt="logo-room"
+              /> */}
               <div className="table" id="Donald">
                 <Row>
                   <Col xs="4">
@@ -294,8 +305,15 @@ class GameBoard extends Component {
                     {/* <p>Donald | My Board</p> */}
 
                     <Col xs="11">
-                      <div className="border2-row">
-                        {this.renderBoardTwo(25)}
+                      <div className="board">
+                        <div className="border2-row">
+                          {/* <img
+                          className="board"
+                          src={require("./img/BATTLE OF POWER-tierra-white.svg")}
+                          alt="trump"
+                        /> */}
+                          {this.renderBoardTwo(25)}
+                        </div>
                       </div>
                     </Col>
                   </Col>
@@ -313,8 +331,10 @@ class GameBoard extends Component {
                     {/* <p> Greta | Board Enemy </p> */}
 
                     <Col xs="11">
-                      <div className="border2-row">
-                        {this.renderEnemyBoardTwo(25)}
+                      <div className="board">
+                        <div className="border2-row">
+                          {this.renderEnemyBoardTwo(25)}
+                        </div>
                       </div>
                     </Col>
                   </Col>
