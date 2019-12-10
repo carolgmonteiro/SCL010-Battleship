@@ -19,6 +19,13 @@
   width: 40%;
   padding-left: 1.8rem;
 }
+
+.VS {
+  width: 75%;
+  /* display: flex; */
+  /* justify-content: center; */
+  padding-left: 7rem;
+}
 .faces {
   width: 30%;
 }

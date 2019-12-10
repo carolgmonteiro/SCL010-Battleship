@@ -1,5 +1,5 @@
 .btn-square1 {
-  background: #fff;
+  background: transparent;
   border: 1px solid rgb(214, 214, 214);
   font-size: 50px;
   font-weight: bold;
@@ -11,14 +11,15 @@
   line-height: 60px;
   height: 60px;
   display: inline-block;
-  transition: 0.2s;
+  transition: 0.5s;
   font-size: 16px;
 }
 .btn-square1:focus {
   outline: none;
 }
 .btn-square1:hover {
-  background-color: grey;
+  /* background-color: grey; */
+  background-image: url(../Views/img/gun-pointer.svg);
 }
 
 .btn-pieces-greta {

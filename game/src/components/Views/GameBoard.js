@@ -5,13 +5,18 @@ import "./BoardTwo.css";
 import "./GameBoard.css";
 import "../../components/Buttons/Square.css";
 import { Col, Row } from "reactstrap";
+import { Link, animateScroll as scroll } from "react-scroll";
 
 class GameBoard extends Component {
   constructor(props) {
     super(props);
-    this.piecesOne = [];
-    // this.hitsPlayerTwo = [];
-    this.piecesTwo = [];
+    this.piecesOne = []; //piezas tablero player 01
+    this.piecesTwo = []; //piezas tablero player 02
+    this.hitsFailEnemyOne = []; //Tablero enemigo player 02 hits fail
+    this.hitsFailEnemyTwo = []; //Tablero enemigo player 01 hits fail
+    this.hitsDamagedEnemyOne = []; //Tablero enemigo player 02 hits damaged
+    this.hitsDamagedEnemyTwo = []; //Tablero enemigo player 01 hits damaged
+
     this.renderEnemyBoardOne = this.renderEnemyBoardOne.bind(this);
     this.handlePiecesEnemyBoardOne = this.handlePiecesEnemyBoardOne.bind(this);
     this.renderBoardTwo = this.renderBoardTwo.bind(this);
@@ -29,6 +34,20 @@ class GameBoard extends Component {
     };
   }
 
+  //SCROLL TOP DEL GAMEBOARD
+  scrollToTop = () => {
+    scroll.scrollToTop();
+  };
+  //SCROLL BOTTOM DEL GAMEBOARD
+  scrollToBottom = () => {
+    scroll.scrollToBottom();
+  };
+
+  //PUSHEAR LOS ARREGLOS DE CADA JUGADOR
+  componentDidMount(propKey) {
+    this.hitsFailEnemyTwo.push(propKey);
+  }
+
   // FUNCION DE CAMBIO DE ESTADO BOARD 01
   handlePiecesPlayerOne(event, propKey) {
     event.preventDefault();
@@ -37,7 +56,7 @@ class GameBoard extends Component {
       console.log("PiecesOne", this.piecesOne);
       event.target.className = "btn-pieces-greta";
     } else {
-      alert("It´s your turn to hit Donald!");
+      // alert("It´s your turn to hit Donald!");
     }
     return this.piecesOne;
   }
@@ -56,8 +75,7 @@ class GameBoard extends Component {
         cellInfo = {
           key: key,
           height: x,
-          width: y,
-          isActive: false
+          width: y
         };
         board.push(cellInfo);
         console.log("cellInfo", cellInfo);
@@ -71,7 +89,6 @@ class GameBoard extends Component {
         style={{ className: this.state.className }}
         height={e.height}
         width={e.width}
-        isActive={e.isActive}
       />
     ));
   }
@@ -83,6 +100,8 @@ class GameBoard extends Component {
       event.target.className = "btn-hit-pieces-two";
     } else {
       event.target.className = "btn-hit-pieces-two-fail";
+      this.hitsFailEnemyTwo.push(propKey);
+      console.log("piecesOneDamaged", this.piecesOneDamaged);
     }
   }
 
@@ -100,8 +119,7 @@ class GameBoard extends Component {
         cellInfo = {
           key: key,
           height: x,
-          width: y,
-          isActive: false
+          width: y
         };
         board.push(cellInfo);
         console.log("cellInfo", cellInfo);
@@ -115,7 +133,6 @@ class GameBoard extends Component {
         style={{ className: this.state.className }}
         height={e.height}
         width={e.width}
-        isActive={e.isActive}
       />
     ));
   }
@@ -146,8 +163,7 @@ class GameBoard extends Component {
         cellInfo = {
           key: key,
           height: x,
-          width: y,
-          isActive: false
+          width: y
         };
         board.push(cellInfo);
         console.log("cellInfo", cellInfo);
@@ -161,7 +177,6 @@ class GameBoard extends Component {
         style={{ className: this.state.className }}
         height={e.height}
         width={e.width}
-        isActive={e.isActive}
       />
     ));
   }
@@ -204,17 +219,16 @@ class GameBoard extends Component {
         clickFunc={this.handlePiecesEnemyBoardOne}
         height={e.height}
         width={e.width}
-        isActive={e.isActive}
       />
     ));
   }
 
-  // open and close in the same button "Create Event"
-  handleBoardTwoIsOpen = () => {
-    this.setState(prevState => ({
-      isOpenBoardTwo: !prevState.isOpenBoardTwo
-    }));
-  };
+  // // open and close in the same button "Create Event"
+  // handleBoardTwoIsOpen = () => {
+  //   this.setState(prevState => ({
+  //     isOpenBoardTwo: !prevState.isOpenBoardTwo
+  //   }));
+  // };
 
   render() {
     return (
@@ -231,42 +245,40 @@ class GameBoard extends Component {
                 <Col xs="4">
                   <img
                     className="faces"
-                    src={require("./img/GRETA MASK-01.png")}
+                    src={require("./img/BATTLE OF POWER-greta.png")}
                     alt="greta"
                   />
-                  <p>Greta | My board</p>
+                  {/* <p>My board</p> */}
 
-                  {/* <BoardOne className="home-content" propKey={propKey} /> */}
-                  <Row>
-                    <Col xs="10">
-                      <div className="border1-row">
-                        {this.renderBoardOne(25)}
-                      </div>
-                    </Col>
-                  </Row>
+                  <Col xs="11">
+                    <div className="border1-row">{this.renderBoardOne(25)}</div>
+                  </Col>
                 </Col>
                 <Col xs="4">
-                  <button
-                    className="btn-start"
-                    onClick={this.handleBoardTwoIsOpen}
-                  >
-                    BATTLE DONALD
+                  <Row>
+                    <img
+                      className="VS"
+                      src={require("./img/BATTLE OF POWER-VS.svg")}
+                      alt="trump"
+                    />
+                  </Row>
+                  <button className="btn-start" onClick={this.scrollToBottom}>
+                    DONALD TURN
                   </button>
                 </Col>
                 <Col xs="4">
                   <img
                     className="faces"
-                    src={require("./img/DONALD-01.png")}
+                    src={require("./img/BATTLE OF POWER-trump.png")}
                     alt="trump"
                   />
-                  <p> Donald | Board Enemy </p>
-                  <Row>
-                    <Col xs="10">
-                      <div className="boardEnemy">
-                        {this.renderEnemyBoardOne(25)}
-                      </div>
-                    </Col>
-                  </Row>
+                  {/* <p> Enemy Board </p> */}
+
+                  <Col xs="11">
+                    <div className="boardEnemy">
+                      {this.renderEnemyBoardOne(25)}
+                    </div>
+                  </Col>
                 </Col>
               </Row>
             </div>
@@ -276,40 +288,35 @@ class GameBoard extends Component {
                   <Col xs="4">
                     <img
                       className="faces"
-                      src={require("./img/DONALD-01.png")}
+                      src={require("./img/BATTLE OF POWER-trump.png")}
                       alt="trump"
                     />
-                    <p>Donald | My Board</p>
-                    <Row>
-                      <Col xs="10">
-                        <div className="border2-row">
-                          {this.renderBoardTwo(25)}
-                        </div>
-                      </Col>
-                    </Row>
+                    {/* <p>Donald | My Board</p> */}
+
+                    <Col xs="11">
+                      <div className="border2-row">
+                        {this.renderBoardTwo(25)}
+                      </div>
+                    </Col>
                   </Col>
                   <Col xs="4">
-                    <button
-                      className="btn-start"
-                      onClick={this.handleBoardTwoIsOpen}
-                    >
-                      BATTLE
+                    <button className="btn-start" onClick={this.scrollToTop}>
+                      GRETA TURN
                     </button>
                   </Col>
                   <Col xs="4">
                     <img
                       className="faces"
-                      src={require("./img/GRETA MASK-01.png")}
+                      src={require("./img/BATTLE OF POWER-greta.png")}
                       alt="greta"
                     />
-                    <p> Greta | Board Enemy </p>
-                    <Row>
-                      <Col xs="10">
-                        <div className="border2-row">
-                          {this.renderEnemyBoardTwo(25)}
-                        </div>
-                      </Col>
-                    </Row>
+                    {/* <p> Greta | Board Enemy </p> */}
+
+                    <Col xs="11">
+                      <div className="border2-row">
+                        {this.renderEnemyBoardTwo(25)}
+                      </div>
+                    </Col>
                   </Col>
                 </Row>
               </div>
