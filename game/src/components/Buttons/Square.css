@@ -22,7 +22,7 @@
   background-image: url(../Views/img/gun-pointer.svg);
 }
 
-.btn-pieces-greta {
+.btn-pieces-trees {
   background-image: url(../Views/img/trees.svg);
   background-size: cover;
   /* background: red; */
@@ -41,7 +41,7 @@
   font-size: 16px;
 }
 
-.btn-hit-pieces-two {
+.btn-hit-pieces-trees-fire {
   background-image: url(../Views/img/trees-fire.svg);
   background-size: cover;
   border: 1px solid gray;
@@ -59,7 +59,7 @@
   font-size: 16px;
 }
 
-.btn-hit-pieces-two-fail {
+.btn-hit-pieces-fail {
   background-image: url(../Views/img/close.svg);
   background-size: cover;
   /* background: red; */

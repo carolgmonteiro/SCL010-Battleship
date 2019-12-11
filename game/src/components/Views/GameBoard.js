@@ -5,17 +5,15 @@ import "./BoardTwo.css";
 import "./GameBoard.css";
 import "../../components/Buttons/Square.css";
 import { Col, Row } from "reactstrap";
-import { Link, animateScroll as scroll } from "react-scroll";
+import { animateScroll as scroll } from "react-scroll";
 
 class GameBoard extends Component {
   constructor(props) {
     super(props);
-    this.piecesOne = []; //piezas tablero player 01
-    this.piecesTwo = []; //piezas tablero player 02
-    this.hitsFailEnemyOne = []; //Tablero enemigo player 02 hits fail
-    this.hitsFailEnemyTwo = []; //Tablero enemigo player 01 hits fail
-    this.hitsDamagedEnemyOne = []; //Tablero enemigo player 02 hits damaged
-    this.hitsDamagedEnemyTwo = []; //Tablero enemigo player 01 hits damaged
+    // this.hitsFailEnemyOne = []; //Tablero enemigo player 02 hits fail
+    // this.hitsEnemyTwo = []; //Tablero enemigo player 01 hits fail
+    // this.hitsDamagedEnemyOne = []; //Tablero enemigo player 02 hits damaged
+    // this.hitsDamagedEnemyTwo = []; //Tablero enemigo player 01 hits damaged
 
     this.renderEnemyBoardOne = this.renderEnemyBoardOne.bind(this);
     this.handlePiecesEnemyBoardOne = this.handlePiecesEnemyBoardOne.bind(this);
@@ -27,9 +25,10 @@ class GameBoard extends Component {
     this.handlePiecesPlayerOne = this.handlePiecesPlayerOne.bind(this);
 
     this.state = {
-      playerOneIsNext: true,
-      arrayPiecesPlayerOne: this.piecesOne,
-      arrayPiecesPlayerTwo: this.piecesTwo,
+      turn: true,
+      arrayPiecesPlayerOne: [],
+      arrayPiecesPlayerTwo: [],
+      arrayHitsEnemyTwo: [],
       isOpenBoardTwo: false
     };
   }
@@ -43,22 +42,23 @@ class GameBoard extends Component {
     scroll.scrollToBottom();
   };
 
-  //PUSHEAR LOS ARREGLOS DE CADA JUGADOR
-  componentDidMount(propKey) {
-    this.hitsFailEnemyTwo.push(propKey);
-  }
+  squareFunction;
 
   // FUNCION DE CAMBIO DE ESTADO BOARD 01
   handlePiecesPlayerOne(event, propKey) {
     event.preventDefault();
-    if (this.piecesOne.length < 5) {
-      this.piecesOne.push(propKey);
-      console.log("PiecesOne", this.piecesOne);
-      event.target.className = "btn-pieces-greta";
+    if (this.state.arrayPiecesPlayerOne.length < 5) {
+      this.setState({
+        ...this.state,
+        arrayPiecesPlayerOne: this.state.arrayPiecesPlayerOne.concat([propKey]),
+        turn: !this.state.turn
+      });
     } else {
-      // alert("It´s your turn to hit Donald!");
+      alert("It´s your turn to hit Donald!");
     }
-    return this.piecesOne;
+    console.log("arrayPiecesPlayerOne", this.state);
+
+    return this.state.arrayPiecesPlayerOne;
   }
 
   // FUNCION DE IMPRIMIR BOARD 01
@@ -82,6 +82,8 @@ class GameBoard extends Component {
       }
     }
     return board.map(e => (
+      // if( this.state.arrayHitsEnemyTwo.includes(e.key) &&
+      // this.state.arrayPiecesPlayerOne.includes(e.key)){
       <Square
         key={e.key}
         propKey={e.key}
@@ -89,6 +91,18 @@ class GameBoard extends Component {
         style={{ className: this.state.className }}
         height={e.height}
         width={e.width}
+        classNameToReflect={
+          this.state.arrayHitsEnemyTwo.includes(e.key) &&
+          this.state.arrayPiecesPlayerOne.includes(e.key)
+            ? "btn-hit-pieces-fail"
+            : this.state.arrayPiecesPlayerOne.includes(e.key)
+            ? "btn-pieces-trees"
+            : "btn-square1"
+          // this.state.arrayHitsEnemyTwo.includes(e.key) &&
+          // this.state.arrayPiecesPlayerOne.includes(e.key)
+          //   ? "btn-pieces-trees"
+          //   : "btn-square1"
+        }
       />
     ));
   }
@@ -96,12 +110,15 @@ class GameBoard extends Component {
   // FUNCION DE CAMBIO DE ESTADO ENEMY BOARD 02
   handlePiecesEnemyBoardTwo(event, propKey) {
     event.preventDefault();
-    if (this.piecesOne.includes(propKey)) {
-      event.target.className = "btn-hit-pieces-two";
+    // this.hitsEnemyTwo.push(propKey);
+    if (this.state.playerOneIsNext === false) {
+      this.setState({
+        ...this.state,
+        arrayPiecesPlayerOne: this.state.arrayPiecesPlayerOne.concat([propKey])
+      });
+      console.log("hitsEnemyTwo", this.hitsEnemyTwo);
     } else {
-      event.target.className = "btn-hit-pieces-two-fail";
-      this.hitsFailEnemyTwo.push(propKey);
-      console.log("piecesOneDamaged", this.piecesOneDamaged);
+      alert("its greta");
     }
   }
 
@@ -133,6 +150,14 @@ class GameBoard extends Component {
         style={{ className: this.state.className }}
         height={e.height}
         width={e.width}
+        classNameToReflect={
+          this.state.arrayHitsEnemyTwo.includes(e.key) &&
+          this.state.arrayPiecesPlayerOne.includes(e.key)
+            ? "btn-hit-pieces-fail"
+            : this.state.arrayPiecesPlayerOne.includes(e.key)
+            ? "btn-pieces-trees"
+            : "btn-square1"
+        }
       />
     ));
   }
@@ -222,13 +247,6 @@ class GameBoard extends Component {
       />
     ));
   }
-
-  // // open and close in the same button "Create Event"
-  // handleBoardTwoIsOpen = () => {
-  //   this.setState(prevState => ({
-  //     isOpenBoardTwo: !prevState.isOpenBoardTwo
-  //   }));
-  // };
 
   render() {
     return (
