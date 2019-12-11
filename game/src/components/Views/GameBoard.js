@@ -272,11 +272,6 @@ class GameBoard extends Component {
       <Fragment>
         <Col className="game">
           <Col className="game-board">
-            <img
-              className="logo"
-              src={require("../Views/img/BATTLE OF POWER-logo-gameboard.svg")}
-              alt="logo-room"
-            />
             <div className="table" id="greta">
               <Row>
                 <Col xs="4">
@@ -296,14 +291,18 @@ class GameBoard extends Component {
                   </Col>
                 </Col>
                 <Col xs="4">
-                  <Row>
-                    <img
-                      className="VS"
-                      src={require("./img/BATTLE OF POWER-VS.svg")}
-                      alt="trump"
-                    />
-                  </Row>
-                  <div>
+                  <img
+                    className="logo"
+                    src={require("../Views/img/BATTLE OF POWER-logo-gameboard.svg")}
+                    alt="logo-room"
+                  />
+                  <img
+                    className="VS"
+                    src={require("./img/BATTLE OF POWER-VS.svg")}
+                    alt="trump"
+                  />
+
+                  <div className="btn-content">
                     <button
                       className="btn-instruction"
                       onClick={this.openModal}
