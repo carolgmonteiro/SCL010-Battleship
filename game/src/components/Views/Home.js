@@ -10,16 +10,16 @@ class Home extends Component {
         <Col className="container">
           <img
             id="logo"
-            src={require("../Views/img/BATTLE OF POWER-logo-homepage.svg")}
+            src={require("../Views/img/BATTLE OF POWER-logo-homepage-01.svg")}
             alt="logo-room"
           />
           <Col className="Sub-title">
-            <p>YOU CAN SAVE OR DESTROY THE WORLD!!</p>
+            <p>
+              Will there really be climate Change? Will the planet be saved?
+            </p>
           </Col>
           <Col className="text-content">
-            <p>
-              Will there really be climate Change? Will the planet be Saved?
-            </p>
+            <p>YOU CAN SAVE OR DESTROY THE WORLD!!</p>
           </Col>
           <Col className="home-content">
             <Link to="/gameboard">
