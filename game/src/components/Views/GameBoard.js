@@ -5,19 +5,11 @@ import "./BoardTwo.css";
 import "./GameBoard.css";
 import "../../components/Buttons/Square.css";
 import { Col, Row } from "reactstrap";
-import { Link, animateScroll as scroll } from "react-scroll";
+import { animateScroll as scroll } from "react-scroll";
 import Modal from "react-modal";
-
-const customStyles = {
-  content: {
-    top: "50%",
-    left: "50%",
-    right: "auto",
-    bottom: "auto",
-    marginRight: "-50%",
-    transform: "translate(-50%, -50%)"
-  }
-};
+import ReactModal from "react-modal";
+import { SnackbarProvider } from "react-snackbar-alert";
+import Alert from "./Alert";
 
 class GameBoard extends Component {
   constructor(props) {
@@ -42,24 +34,54 @@ class GameBoard extends Component {
       playerOneIsNext: true,
       arrayPiecesPlayerOne: this.piecesOne,
       arrayPiecesPlayerTwo: this.piecesTwo,
-      isOpenBoardTwo: false
-    };
-    //Modal Estado
-    this.state = {
-      modalIsOpen: false
+      isOpenBoardTwo: false,
+      modalIsOpen: false,
+      showModal: false,
+      showModal2: false
     };
 
     this.openModal = this.openModal.bind(this);
     this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.handleOpenModal = this.handleOpenModal.bind(this);
+    this.handleCloseModal = this.handleCloseModal.bind(this);
+    this.handleOpenModal2 = this.handleOpenModal2.bind(this);
+    this.handleCloseModal2 = this.handleCloseModal2.bind(this);
+  }
+
+  // componentDidMount(propKey) {
+  //   setTimeout(() => {
+  //     this.showAlert = true;
+  //   }, 2000);
+  //
+  // }
+
+  componentDidMount(propKey) {
+    alert("Let's play! Greta time to put your 3 forests on your board!");
+    this.hitsFailEnemyTwo.push(propKey);
   }
 
   openModal() {
     this.setState({ modalIsOpen: true });
   }
 
-  // Modal Instrucciones
+  //Modal1
+  handleOpenModal() {
+    this.setState({ showModal: true });
+  }
+  handleCloseModal() {
+    this.setState({ showModal: false });
+  }
 
+  //Modal2
+  handleOpenModal2() {
+    this.setState({ showModal2: true });
+  }
+  handleCloseModal2() {
+    this.setState({ showModal2: false });
+  }
+
+  // Modal Instrucciones
   afterOpenModal() {
     // references are now sync'd and can be accessed.
     this.subtitle.style.color = "#f00";
@@ -70,7 +92,6 @@ class GameBoard extends Component {
   }
 
   //Scroll en las Páginas.
-
   //SCROLL TOP DEL GAMEBOARD
   scrollToTop = () => {
     scroll.scrollToTop();
@@ -80,20 +101,15 @@ class GameBoard extends Component {
     scroll.scrollToBottom();
   };
 
-  //PUSHEAR LOS ARREGLOS DE CADA JUGADOR
-  componentDidMount(propKey) {
-    this.hitsFailEnemyTwo.push(propKey);
-  }
-
   // FUNCION DE CAMBIO DE ESTADO BOARD 01
   handlePiecesPlayerOne(event, propKey) {
     event.preventDefault();
-    if (this.piecesOne.length < 5) {
+    if (this.piecesOne.length < 3) {
       this.piecesOne.push(propKey);
       console.log("PiecesOne", this.piecesOne);
       event.target.className = "btn-pieces-greta";
     } else {
-      // alert("It´s your turn to hit Donald!");
+      alert("Don't be mean it's time for Donald to put his 3 industries!");
     }
     return this.piecesOne;
   }
@@ -176,13 +192,13 @@ class GameBoard extends Component {
 
   // FUNCION DE CAMBIO DE ESTADO BOARD 02
   handlePiecesPlayerTwo(event, propKey) {
-    if (this.piecesTwo.length < 5) {
+    if (this.piecesTwo.length < 3) {
       this.piecesTwo.push(propKey);
       console.log("PiecesTwo", this.piecesTwo);
 
       event.target.className = "btn-pieces-donald";
     } else {
-      alert("It´s your turn to hit Greta!");
+      alert("No cheating! Greta time to play!");
     }
     return this.piecesTwo;
   }
@@ -265,6 +281,11 @@ class GameBoard extends Component {
       <Fragment>
         <Col className="game">
           <Col className="game-board">
+            <img
+              className="logo"
+              src={require("../Views/img/BATTLE OF POWER-logo-gameboard-02.svg")}
+              alt="logo-room"
+            />
             <div className="table" id="greta">
               <Row>
                 <Col xs="4">
@@ -285,11 +306,6 @@ class GameBoard extends Component {
                 </Col>
                 <Col xs="4">
                   <img
-                    className="logo"
-                    src={require("../Views/img/BATTLE OF POWER-logo-gameboard-01.svg")}
-                    alt="logo-room"
-                  />
-                  <img
                     className="VS"
                     src={require("./img/BATTLE OF POWER-VS.svg")}
                     alt="trump"
@@ -297,27 +313,28 @@ class GameBoard extends Component {
                   <Col>
                     <div className="btn-content">
                       <button
-                        className="btn-battle"
-                        onClick={this.scrollToBottom}
-                      >
-                        BATTLE DONALD!
-                      </button>
-                      <button
                         className="btn-instruction"
                         onClick={this.openModal}
                       >
                         INSTRUCTIONS
                       </button>
+
                       <Modal
                         isOpen={this.state.modalIsOpen}
                         onAfterOpen={this.afterOpenModal}
                         onRequestClose={this.closeModal}
-                        style={customStyles}
                       >
-                        <p ref={subtitle => (this.subtitle = subtitle)}>
+                        <p
+                          className="text-1"
+                          ref={subtitle => (this.subtitle = subtitle)}
+                        >
                           {" "}
                           <big>
-                            <b>Instrucciones: “Battle Of Power” ( Spanish)</b>
+                            <b>
+                              <h3 className="dialog-title">
+                                Instrucciones: “Battle Of Power” ( Spanish)
+                              </h3>
+                            </b>
                           </big>{" "}
                           <br /> 1- En el primer tablero posicionar las piezas
                           en las casillas siendo tu zona de juego el cual
@@ -326,9 +343,86 @@ class GameBoard extends Component {
                           2-Una vez posicionadas tus piezas comienzas la
                           partida, no podrás volver a cambiarlos de posición.
                           <br />
+                          3- En el momento que los dos jugadores habéis pulsado
+                          “Comenzar partida”, Battle Of Power empieza.
+                          <br />
+                          4-Aparecerán en tu pantalla los dos tableros: el de
+                          posición izquierda (donde colocaste las piezas ) y el
+                          principal, derecha, donde realizarás y verás tus
+                          disparos, y las posiciones tocadas y debilitadas de tu
+                          oponente.
+                          <br />
+                          5-El primer jugador que dispara es el que ha creado la
+                          partida.
+                          <br />
+                          6-Podrás disparar en cualquier casilla del tablero,
+                          salvo en las que ya has disparado.
+                          <br />
+                          7-No puedes deshacer disparos ni propios ni de tus
+                          oponentes.
+                          <br />
+                          8-Es un juego por turnos: haces tu disparo, si es
+                          "Árbol verde " el turno pasa a tu oponente; si "tocas"
+                          y/o debilitar el poder de tu enemigo.
+                          <br />
+                          9-Gana el jugador que antes debilite el mundo de su
+                          enemigo y adivine las posición de todas sus piezas.
+                          <br />
+                          10-Suerte y a salvar el mundo!
+                          <br />
                         </p>
-                        <button onClick={this.closeModal}>close</button>
+                        <button className="btn-close" onClick={this.closeModal}>
+                          GO TO PLAY!
+                        </button>
                       </Modal>
+                    </div>
+                  </Col>
+                  <Col>
+                    <button
+                      className="btn-battle"
+                      onClick={this.scrollToBottom}
+                    >
+                      BATTLE DONALD!
+                    </button>
+                  </Col>
+                  <Col>
+                    <div>
+                      <button
+                        onClick={this.handleOpenModal}
+                        className="btn-hidden"
+                      >
+                        Greta
+                      </button>
+                      <ReactModal
+                        isOpen={this.state.showModal}
+                        contentLabel="onRequestClose Example"
+                        onRequestClose={this.handleCloseModal}
+                        className="Modal"
+                        overlayClassName="Overlay"
+                      >
+                        <br />
+                        <br />
+                        <h3>
+                          <b>The Winner is : GRETA!</b>
+                        </h3>
+                        <div className="gifgreta">
+                          <img
+                            className="gifgreta-trump"
+                            src="https://media.giphy.com/media/ASzK5wWjMtc6A/giphy.gif"
+                            alt="funny trump"
+                          ></img>
+                          <img
+                            src="https://media.giphy.com/media/KazYwu6snELed35zkB/giphy.gif"
+                            alt="funny greta"
+                          ></img>
+                        </div>
+                        <button
+                          className="btn-close2"
+                          onClick={this.handleCloseModal}
+                        >
+                          PLAY AGAIN
+                        </button>
+                      </ReactModal>
                     </div>
                   </Col>
                 </Col>
@@ -353,6 +447,13 @@ class GameBoard extends Component {
             <Row></Row>
             <Row>
               <div className="table" id="Donald">
+                <Col>
+                  <img
+                    className="logo-1"
+                    src={require("../Views/img/BATTLE OF POWER-logo-gameboard-02.svg")}
+                    alt="logo-room"
+                  />
+                </Col>
                 <Row>
                   <Col xs="4">
                     <img
@@ -373,11 +474,6 @@ class GameBoard extends Component {
                   <Col xs="4">
                     <Row>
                       <img
-                        className="logo-1"
-                        src={require("../Views/img/BATTLE OF POWER-logo-gameboard-01.svg")}
-                        alt="logo-room"
-                      />
-                      <img
                         className="VS-1"
                         src={require("./img/BATTLE OF POWER-VS.svg")}
                         alt="trump"
@@ -388,6 +484,41 @@ class GameBoard extends Component {
                         BATTLE GRETA!
                       </button>
                     </div>
+                    <button
+                      onClick={this.handleOpenModal2}
+                      className="btn-hidden"
+                    >
+                      Donald
+                    </button>
+                    <ReactModal
+                      isOpen={this.state.showModal2}
+                      contentLabel="Modal #2 Global Style Override Example"
+                      onRequestClose={this.handleCloseModal2}
+                      className="Modal"
+                      overlayClassName="Overlay"
+                    >
+                      <br />
+                      <br />
+                      <h3>
+                        <b>The Winner is : DONALD TRUMP!!!</b>{" "}
+                      </h3>
+                      <div className="giftdonald">
+                        <img
+                          src="https://media.giphy.com/media/TIyJGNK325XGciFEnI/giphy.gif"
+                          alt="funny trump"
+                        ></img>{" "}
+                        <img
+                          src="https://media.giphy.com/media/U1aN4HTfJ2SmgB2BBK/giphy.gif"
+                          alt="greta"
+                        ></img>{" "}
+                      </div>
+                      <button
+                        className="btn-close2"
+                        onClick={this.handleCloseModal2}
+                      >
+                        PLAY AGAIN
+                      </button>
+                    </ReactModal>
                   </Col>
                   <Col xs="4">
                     <img
