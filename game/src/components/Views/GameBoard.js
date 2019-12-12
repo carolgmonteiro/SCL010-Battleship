@@ -8,8 +8,7 @@ import { Col, Row } from "reactstrap";
 import { animateScroll as scroll } from "react-scroll";
 import Modal from "react-modal";
 import ReactModal from "react-modal";
-import { SnackbarProvider } from "react-snackbar-alert";
-import Alert from "./Alert";
+import { Link } from "react-router-dom";
 
 class GameBoard extends Component {
   constructor(props) {
@@ -29,6 +28,13 @@ class GameBoard extends Component {
     this.handlePiecesEnemyBoardTwo = this.handlePiecesEnemyBoardTwo.bind(this);
     this.renderBoardOne = this.renderBoardOne.bind(this);
     this.handlePiecesPlayerOne = this.handlePiecesPlayerOne.bind(this);
+    this.openModal = this.openModal.bind(this);
+    this.afterOpenModal = this.afterOpenModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
+    this.handleOpenModal = this.handleOpenModal.bind(this);
+    this.handleCloseModal = this.handleCloseModal.bind(this);
+    this.handleOpenModal2 = this.handleOpenModal2.bind(this);
+    this.handleCloseModal2 = this.handleCloseModal2.bind(this);
 
     this.state = {
       playerOneIsNext: true,
@@ -39,22 +45,7 @@ class GameBoard extends Component {
       showModal: false,
       showModal2: false
     };
-
-    this.openModal = this.openModal.bind(this);
-    this.afterOpenModal = this.afterOpenModal.bind(this);
-    this.closeModal = this.closeModal.bind(this);
-    this.handleOpenModal = this.handleOpenModal.bind(this);
-    this.handleCloseModal = this.handleCloseModal.bind(this);
-    this.handleOpenModal2 = this.handleOpenModal2.bind(this);
-    this.handleCloseModal2 = this.handleCloseModal2.bind(this);
   }
-
-  // componentDidMount(propKey) {
-  //   setTimeout(() => {
-  //     this.showAlert = true;
-  //   }, 2000);
-  //
-  // }
 
   componentDidMount(propKey) {
     alert("Let's play! Greta time to put your 3 forests on your board!");
@@ -416,12 +407,14 @@ class GameBoard extends Component {
                             alt="funny greta"
                           ></img>
                         </div>
-                        <button
-                          className="btn-close2"
-                          onClick={this.handleCloseModal}
-                        >
-                          PLAY AGAIN
-                        </button>
+                        <Link to="/">
+                          <button
+                            className="btn-close"
+                            onClick={this.handleCloseModal}
+                          >
+                            PLAY AGAIN
+                          </button>
+                        </Link>
                       </ReactModal>
                     </div>
                   </Col>
@@ -432,7 +425,6 @@ class GameBoard extends Component {
                     src={require("./img/DONALD-BLACK.png")}
                     alt="trump"
                   />
-                  {/* <p> Player One | Board Enemy </p> */}
 
                   <Col xs="11">
                     <div className="board-black">
@@ -512,12 +504,14 @@ class GameBoard extends Component {
                           alt="greta"
                         ></img>{" "}
                       </div>
-                      <button
-                        className="btn-close2"
-                        onClick={this.handleCloseModal2}
-                      >
-                        PLAY AGAIN
-                      </button>
+                      <Link to="/">
+                        <button
+                          className="btn-close2"
+                          onClick={this.handleCloseModal2}
+                        >
+                          PLAY AGAIN
+                        </button>
+                      </Link>
                     </ReactModal>
                   </Col>
                   <Col xs="4">

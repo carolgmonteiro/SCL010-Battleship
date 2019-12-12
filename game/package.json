@@ -2,7 +2,7 @@
   "name": "game",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://alejandramoralesb.github.io/SCL010-Battleship",
+  "homepage": "https://battleofpower-1a6b1.firebaseapp.com",
   "dependencies": {
     "bootstrap": "^4.4.0",
     "gh-pages": "^2.1.1",
