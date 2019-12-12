@@ -260,13 +260,6 @@ class GameBoard extends Component {
     ));
   }
 
-  // // open and close in the same button "Create Event"
-  // handleBoardTwoIsOpen = () => {
-  //   this.setState(prevState => ({
-  //     isOpenBoardTwo: !prevState.isOpenBoardTwo
-  //   }));
-  // };
-
   render() {
     return (
       <Fragment>
@@ -276,14 +269,14 @@ class GameBoard extends Component {
               <Row>
                 <Col xs="4">
                   <img
-                    className="faces"
-                    src={require("./img/BATTLE OF POWER-greta.png")}
+                    className="faces-image"
+                    src={require("./img/GRETA-BLACK.png")}
                     alt="greta"
                   />
-                  <p> Payer One | My Board </p>
+                  {/* <p> Payer One | My Board </p> */}
 
                   <Col xs="11">
-                    <div className="board">
+                    <div className="board-white">
                       <div className="border1-row">
                         {this.renderBoardOne(25)}
                       </div>
@@ -293,7 +286,7 @@ class GameBoard extends Component {
                 <Col xs="4">
                   <img
                     className="logo"
-                    src={require("../Views/img/BATTLE OF POWER-logo-gameboard.svg")}
+                    src={require("../Views/img/BATTLE OF POWER-logo-gameboard-01.svg")}
                     alt="logo-room"
                   />
                   <img
@@ -301,50 +294,54 @@ class GameBoard extends Component {
                     src={require("./img/BATTLE OF POWER-VS.svg")}
                     alt="trump"
                   />
-
-                  <div className="btn-content">
-                    <button
-                      className="btn-instruction"
-                      onClick={this.openModal}
-                    >
-                      INSTRUCTIONS
-                    </button>
-                    <Modal
-                      isOpen={this.state.modalIsOpen}
-                      onAfterOpen={this.afterOpenModal}
-                      onRequestClose={this.closeModal}
-                      style={customStyles}
-                    >
-                      <p ref={subtitle => (this.subtitle = subtitle)}>
-                        {" "}
-                        <big>
-                          <b>Instrucciones: “Battle Of Power” ( Spanish)</b>
-                        </big>{" "}
-                        <br /> 1- En el primer tablero posicionar las piezas en
-                        las casillas siendo tu zona de juego el cual permanecerá
-                        oculta para tu enemigo.
-                        <br />
-                        2-Una vez posicionadas tus piezas comienzas la partida,
-                        no podrás volver a cambiarlos de posición.
-                        <br />
-                      </p>
-                      <button onClick={this.closeModal}>close</button>
-                    </Modal>
-                  </div>
-                  <button className="btn-start" onClick={this.scrollToBottom}>
-                    DONALD TURN
-                  </button>
+                  <Col>
+                    <div className="btn-content">
+                      <button
+                        className="btn-battle"
+                        onClick={this.scrollToBottom}
+                      >
+                        BATTLE DONALD!
+                      </button>
+                      <button
+                        className="btn-instruction"
+                        onClick={this.openModal}
+                      >
+                        INSTRUCTIONS
+                      </button>
+                      <Modal
+                        isOpen={this.state.modalIsOpen}
+                        onAfterOpen={this.afterOpenModal}
+                        onRequestClose={this.closeModal}
+                        style={customStyles}
+                      >
+                        <p ref={subtitle => (this.subtitle = subtitle)}>
+                          {" "}
+                          <big>
+                            <b>Instrucciones: “Battle Of Power” ( Spanish)</b>
+                          </big>{" "}
+                          <br /> 1- En el primer tablero posicionar las piezas
+                          en las casillas siendo tu zona de juego el cual
+                          permanecerá oculta para tu enemigo.
+                          <br />
+                          2-Una vez posicionadas tus piezas comienzas la
+                          partida, no podrás volver a cambiarlos de posición.
+                          <br />
+                        </p>
+                        <button onClick={this.closeModal}>close</button>
+                      </Modal>
+                    </div>
+                  </Col>
                 </Col>
                 <Col xs="4">
                   <img
-                    className="faces"
-                    src={require("./img/BATTLE OF POWER-trump.png")}
+                    className="faces-image"
+                    src={require("./img/DONALD-BLACK.png")}
                     alt="trump"
                   />
-                  <p> Player One | Board Enemy </p>
+                  {/* <p> Player One | Board Enemy </p> */}
 
                   <Col xs="11">
-                    <div className="board">
+                    <div className="board-black">
                       <div className="boardEnemy">
                         {this.renderEnemyBoardOne(25)}
                       </div>
@@ -353,50 +350,55 @@ class GameBoard extends Component {
                 </Col>
               </Row>
             </div>
+            <Row></Row>
             <Row>
-              {/* <img
-                className="logo"
-                src={require("../Views/img/BATTLE OF POWER-logo-gameboard.svg")}
-                alt="logo-room"
-              /> */}
               <div className="table" id="Donald">
                 <Row>
                   <Col xs="4">
                     <img
-                      className="faces"
-                      src={require("./img/BATTLE OF POWER-trump.png")}
+                      className="faces-image"
+                      src={require("./img/DONALD-WHITE.png")}
                       alt="trump"
                     />
-                    <p>Player Two | My Board</p>
+                    {/* <p>Player Two | My Board</p> */}
 
                     <Col xs="11">
-                      <div className="board">
+                      <div className="board-white">
                         <div className="border2-row">
-                          {/* <img
-                          className="board"
-                          src={require("./img/BATTLE OF POWER-tierra-white.svg")}
-                          alt="trump"
-                        /> */}
                           {this.renderBoardTwo(25)}
                         </div>
                       </div>
                     </Col>
                   </Col>
                   <Col xs="4">
-                    <button className="btn-start" onClick={this.scrollToTop}>
-                      GRETA TURN
-                    </button>
+                    <Row>
+                      <img
+                        className="logo-1"
+                        src={require("../Views/img/BATTLE OF POWER-logo-gameboard-01.svg")}
+                        alt="logo-room"
+                      />
+                      <img
+                        className="VS-1"
+                        src={require("./img/BATTLE OF POWER-VS.svg")}
+                        alt="trump"
+                      />
+                    </Row>
+                    <div className="btn-content">
+                      <button className="btn-battle" onClick={this.scrollToTop}>
+                        BATTLE GRETA!
+                      </button>
+                    </div>
                   </Col>
                   <Col xs="4">
                     <img
-                      className="faces"
-                      src={require("./img/BATTLE OF POWER-greta.png")}
+                      className="faces-image"
+                      src={require("./img/GRETA-WHITE.png")}
                       alt="greta"
                     />
-                    <p> Payer Two | Board Enemy </p>
+                    {/* <p> Payer Two | Board Enemy </p> */}
 
                     <Col xs="11">
-                      <div className="board">
+                      <div className="board-black">
                         <div className="border2-row">
                           {this.renderEnemyBoardTwo(25)}
                         </div>

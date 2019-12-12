@@ -10,7 +10,7 @@
   /* display: flex;
   flex-wrap: wrap; */
   position: relative;
-  font-family: Lato;
+  font-family: "Russo One", sans-serif;
 }
 
 .header-home {
@@ -40,7 +40,7 @@
   /* text-shadow: 6px 6px 8px #ffffff; */
   text-align: center;
   color: #ffffff;
-  font-size: 35px;
+  font-size: 28px;
   font-weight: 800;
   text-align: center;
   padding-top: 11rem;
@@ -52,7 +52,7 @@
   color: white;
   font-size: 25px;
   font-weight: 800;
-  padding-top: 9rem;
+  padding-top: 10rem;
   text-shadow: 1px 2px 3px rgb(3, 3, 3);
 }
 

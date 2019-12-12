@@ -10,24 +10,32 @@
   background: linear-gradient(90deg, black 50%, white 50%);
 }
 .logo {
-  width: 120%;
-  height: 120%;
+  width: 100%;
   padding-bottom: 1rem;
   margin: 0;
   vertical-align: middle;
   opacity: 1 !important;
   position: absolute;
   top: 5%;
-  left: 50%;
-  margin-right: -50%;
+  left: 53%;
+  margin-right: -47%;
   transform: translate(-50%, -50%);
-  /* width: 40%;
-  padding-left: 1.8rem; */
+}
+.logo-1 {
+  width: 100%;
+  padding-bottom: 1rem;
+  margin: 0;
+  vertical-align: middle;
+  opacity: 1 !important;
+  position: absolute;
+  top: 10%;
+  left: 53%;
+  margin-right: -47%;
+  transform: translate(-50%, -50%);
 }
 
 .VS {
-  width: 40%;
-  height: 40%;
+  width: 30%;
   padding-bottom: 1rem;
   margin: 0;
   vertical-align: middle;
@@ -37,12 +45,25 @@
   left: 50%;
   margin-right: -50%;
   transform: translate(-50%, -50%);
-  /* width: 75%;
-  padding-left: 7rem;
-  padding-bottom: 5rem; */
 }
-.faces {
+.VS-1 {
+  width: 30%;
+  padding-bottom: 1rem;
+  margin: 0;
+  vertical-align: middle;
+  opacity: 1 !important;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
+/* .faces {
   width: 20%;
+  padding-bottom: 1rem;
+} */
+.faces-image {
+  width: 70%;
   padding-bottom: 1rem;
 }
 .text-content {
@@ -66,7 +87,7 @@ ul {
   font-size: 45px;
 }
 .btn-content {
-  padding-top: 9rem;
+  padding-top: 11rem;
 }
 
 .game-board p {
@@ -81,16 +102,21 @@ ul {
 }
 
 .table {
-  margin-top: 50px;
+  margin-top: 70px;
 }
 
-.board {
-  background: url(./img/1-earth.png);
+.board-white {
+  background: url(./img/BATTLEOFPOWER-tierra-white.svg);
+  background-size: 100% 100% !important;
+  /* -webkit-background-size: cover !important; */
+}
+.board-black {
+  background: url(./img/BATTLEOFPOWER-tierra-black.svg);
   background-size: 100% 100% !important;
   /* -webkit-background-size: cover !important; */
 }
 
-.btn-start {
+.btn-battle {
   font-family: Lato;
   font-size: 50px;
   display: inline-block;
