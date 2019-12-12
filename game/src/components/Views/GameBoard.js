@@ -452,89 +452,94 @@ class GameBoard extends Component {
                     alt="logo-room"
                   />
                 </Col>
-                <Row>
-                  <Col xs="4">
-                    <img
-                      className="faces-image"
-                      src={require("./img/DONALD-WHITE.png")}
-                      alt="trump"
-                    />
-
-                    <Col xs="11">
-                      <div className="board-white">
-                        <div className="border2-row">
-                          {this.renderBoardTwo(25)}
-                        </div>
-                      </div>
-                    </Col>
-                  </Col>
-                  <Col xs="4">
-                    <Row>
+                <div>
+                  <Row>
+                    <Col xs="4">
                       <img
-                        className="VS-1"
-                        src={require("./img/BATTLE OF POWER-VS.svg")}
+                        className="faces-image"
+                        src={require("./img/DONALD-WHITE.png")}
                         alt="trump"
                       />
-                    </Row>
-                    <div className="btn-content">
-                      <button className="btn-battle" onClick={this.scrollToTop}>
-                        BATTLE GRETA!
-                      </button>
-                    </div>
-                    <button
-                      onClick={this.handleOpenModal2}
-                      className="btn-hidden"
-                    >
-                      Donald
-                    </button>
-                    <ReactModal
-                      isOpen={this.state.showModal2}
-                      contentLabel="Modal #2 Global Style Override Example"
-                      onRequestClose={this.handleCloseModal2}
-                      className="Modal"
-                      overlayClassName="Overlay"
-                    >
-                      <br />
-                      <br />
-                      <h3>
-                        <b>The Winner is : DONALD TRUMP!!!</b>{" "}
-                      </h3>
-                      <div className="giftdonald">
-                        <img
-                          src="https://media.giphy.com/media/TIyJGNK325XGciFEnI/giphy.gif"
-                          alt="funny trump"
-                        ></img>{" "}
-                        <img
-                          src="https://media.giphy.com/media/U1aN4HTfJ2SmgB2BBK/giphy.gif"
-                          alt="greta"
-                        ></img>{" "}
-                      </div>
-                      <Link to="/">
-                        <button
-                          className="btn-close2"
-                          onClick={this.handleCloseModal2}
-                        >
-                          PLAY AGAIN
-                        </button>
-                      </Link>
-                    </ReactModal>
-                  </Col>
-                  <Col xs="4" className="active-table">
-                    <img
-                      className="faces-image"
-                      src={require("./img/GRETA-BLACK.png")}
-                      alt="greta"
-                    />
 
-                    <Col xs="11">
-                      <div className="board-black">
-                        <div className="border2-row">
-                          {this.renderEnemyBoardTwo(25)}
+                      <Col xs="11">
+                        <div className="board-white">
+                          <div className="border2-row">
+                            {this.renderBoardTwo(25)}
+                          </div>
                         </div>
-                      </div>
+                      </Col>
                     </Col>
-                  </Col>
-                </Row>
+                    <Col xs="4">
+                      <Row>
+                        <img
+                          className="VS-1"
+                          src={require("./img/BATTLE OF POWER-VS.svg")}
+                          alt="trump"
+                        />
+                      </Row>
+                      <div className="btn-content">
+                        <button
+                          className="btn-battle"
+                          onClick={this.scrollToTop}
+                        >
+                          BATTLE GRETA!
+                        </button>
+                      </div>
+                      <button
+                        onClick={this.handleOpenModal2}
+                        className="btn-hidden"
+                      >
+                        Donald
+                      </button>
+                      <ReactModal
+                        isOpen={this.state.showModal2}
+                        contentLabel="Modal #2 Global Style Override Example"
+                        onRequestClose={this.handleCloseModal2}
+                        className="Modal"
+                        overlayClassName="Overlay"
+                      >
+                        <br />
+                        <br />
+                        <h3>
+                          <b>The Winner is : DONALD TRUMP!!!</b>{" "}
+                        </h3>
+                        <div className="giftdonald">
+                          <img
+                            src="https://media.giphy.com/media/TIyJGNK325XGciFEnI/giphy.gif"
+                            alt="funny trump"
+                          ></img>{" "}
+                          <img
+                            src="https://media.giphy.com/media/U1aN4HTfJ2SmgB2BBK/giphy.gif"
+                            alt="greta"
+                          ></img>{" "}
+                        </div>
+                        <Link to="/">
+                          <button
+                            className="btn-close2"
+                            onClick={this.handleCloseModal2}
+                          >
+                            PLAY AGAIN
+                          </button>
+                        </Link>
+                      </ReactModal>
+                    </Col>
+                    <Col xs="4" className="active-table">
+                      <img
+                        className="faces-image"
+                        src={require("./img/GRETA-BLACK.png")}
+                        alt="greta"
+                      />
+
+                      <Col xs="11">
+                        <div className="board-black">
+                          <div className="border2-row">
+                            {this.renderEnemyBoardTwo(25)}
+                          </div>
+                        </div>
+                      </Col>
+                    </Col>
+                  </Row>
+                </div>
               </div>
             </Row>
           </Col>
