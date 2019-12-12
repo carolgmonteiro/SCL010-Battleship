@@ -29,7 +29,7 @@ class GameBoard extends Component {
     this.renderBoardOne = this.renderBoardOne.bind(this);
     this.handlePiecesPlayerOne = this.handlePiecesPlayerOne.bind(this);
     this.openModal = this.openModal.bind(this);
-    this.afterOpenModal = this.afterOpenModal.bind(this);
+    // this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.handleOpenModal = this.handleOpenModal.bind(this);
     this.handleCloseModal = this.handleCloseModal.bind(this);
@@ -72,11 +72,11 @@ class GameBoard extends Component {
     this.setState({ showModal2: false });
   }
 
-  // Modal Instrucciones
-  afterOpenModal() {
-    // references are now sync'd and can be accessed.
-    this.subtitle.style.color = "#f00";
-  }
+  // // Modal Instrucciones
+  // afterOpenModal() {
+  //   // references are now sync'd and can be accessed.
+  //   this.subtitle.style.color = "#f00";
+  // }
 
   closeModal() {
     this.setState({ modalIsOpen: false });
@@ -282,7 +282,7 @@ class GameBoard extends Component {
                 <Col xs="4">
                   <img
                     className="faces-image"
-                    src={require("./img/GRETA-BLACK.png")}
+                    src={require("./img/GRETA-WHITE.png")}
                     alt="greta"
                   />
                   {/* <p> Payer One | My Board </p> */}
@@ -311,16 +311,21 @@ class GameBoard extends Component {
                       </button>
 
                       <Modal
+                        className="modal-instructions"
                         isOpen={this.state.modalIsOpen}
                         onAfterOpen={this.afterOpenModal}
                         onRequestClose={this.closeModal}
                       >
-                        <p
+                        {/* <p
                           className="text-1"
                           ref={subtitle => (this.subtitle = subtitle)}
-                        >
-                          {" "}
-                          <big>
+                        > */}
+                        <img
+                          className="instructions"
+                          src={require("../Views/img/INSTRUCTIONS.png")}
+                          alt="logo-room"
+                        />
+                        {/* <big>
                             <b>
                               <h3 className="dialog-title">
                                 Instrucciones: “Battle Of Power” ( Spanish)
@@ -361,7 +366,7 @@ class GameBoard extends Component {
                           <br />
                           10-Suerte y a salvar el mundo!
                           <br />
-                        </p>
+                        </p> */}
                         <button className="btn-close" onClick={this.closeModal}>
                           GO TO PLAY!
                         </button>
@@ -419,7 +424,8 @@ class GameBoard extends Component {
                     </div>
                   </Col>
                 </Col>
-                <Col xs="4">
+                {/* DONALD BOARD */}
+                <Col xs="4" className="active-table">
                   <img
                     className="faces-image"
                     src={require("./img/DONALD-BLACK.png")}
@@ -453,7 +459,6 @@ class GameBoard extends Component {
                       src={require("./img/DONALD-WHITE.png")}
                       alt="trump"
                     />
-                    {/* <p>Player Two | My Board</p> */}
 
                     <Col xs="11">
                       <div className="board-white">
@@ -514,13 +519,12 @@ class GameBoard extends Component {
                       </Link>
                     </ReactModal>
                   </Col>
-                  <Col xs="4">
+                  <Col xs="4" className="active-table">
                     <img
                       className="faces-image"
-                      src={require("./img/GRETA-WHITE.png")}
+                      src={require("./img/GRETA-BLACK.png")}
                       alt="greta"
                     />
-                    {/* <p> Payer Two | Board Enemy </p> */}
 
                     <Col xs="11">
                       <div className="board-black">

@@ -1,11 +1,12 @@
 .game {
+  font-family: "Lato", sans-serif;
   padding-top: 1rem;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   margin: 0 auto;
   height: 200vh;
-  width: 100%;
+  width: 100vw;
   line-height: 0.5;
   background: linear-gradient(90deg, black 50%, white 50%);
 }
@@ -28,7 +29,7 @@
   vertical-align: middle;
   opacity: 1 !important;
   position: absolute;
-  top: 0;
+  top: 2rem;
   left: 51.5%;
   margin-right: -49.5%;
   transform: translate(-50%, -50%);
@@ -241,10 +242,15 @@ p.text-1 {
   background-color: rgba(8, 8, 8, 0.829);
 }
 h3 {
-  font-family: Lato;
+  font-family: "Lato", sans-serif;
   color: white;
   size: 80px;
   text-align: center;
+}
+
+.active-table:hover {
+  filter: brightness(0.7);
+  /* filter: grayscale(0.5); */
 }
 
 .btn-hidden {
@@ -294,4 +300,21 @@ h3 {
   transition: color 0.1s ease-in-out, background-color 0.1s ease-in-out,
     border-color 0.1s ease-in-out, box-shadow 0.1s ease-in-out;
   margin: 30px 450px;
+}
+
+.instructions {
+  height: 90%;
+  width: 90%;
+}
+
+.modal-instructions {
+  text-align: center;
+  overflow: hidden;
+  position: fixed;
+  outline: none;
+  /* top: 20px; */
+  /* left: 40px;
+  right: 20px; */
+  /* bottom: 20px; */
+  background-color: rgba(255, 255, 255);
 }
